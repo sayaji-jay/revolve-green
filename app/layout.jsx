@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import BackgroundZoom from "@/components/BackgroundZoom";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,9 +20,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen overflow-x-hidden`}
       >
-        {children}
+        {/* Background with Zoom Effect */}
+        <BackgroundZoom />
+
+        {/* Main Content */}
+        <main className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-12">
+          {children}
+        </main>
       </body>
     </html>
   );
