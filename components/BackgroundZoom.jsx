@@ -17,7 +17,7 @@ export default function BackgroundZoom() {
       const scrollPercentage = scrollPosition / maxScroll;
 
       // Scale from 1 to 1.3 based on scroll (adjust as needed)
-      const newScale = 1 + (scrollPercentage * 0.3);
+      const newScale = 1 + (scrollPercentage * 0.1);
       setScrollScale(newScale);
 
       // Forest image moves upward as you scroll (negative Y moves up)
@@ -25,7 +25,7 @@ export default function BackgroundZoom() {
       setForestY(newForestY);
 
       // Grass image moves downward as you scroll (positive Y moves down)
-      const newGrassY = scrollPercentage * 30;
+      const newGrassY = scrollPercentage * 10;
       setGrassY(newGrassY);
     };
 
@@ -60,7 +60,7 @@ export default function BackgroundZoom() {
 
       {/* Grass Image at Bottom with Downward Movement */}
       <section
-        className="fixed bottom-[-50] left-0 right-0 h-32 sm:h-48 md:h-64 z-50 pointer-events-none"
+        className="fixed bottom-[-100] left-0 right-0 h-32 sm:h-48 md:h-64 z-50 pointer-events-none"
         style={{
           transform: `translateY(${grassY}%)`,
           transition: 'transform 0.1s ease-out'

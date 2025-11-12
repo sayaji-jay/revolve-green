@@ -1,14 +1,13 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Comic_Neue } from "next/font/google";
 import "./globals.css";
 import BackgroundZoom from "@/components/BackgroundZoom";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const comicFont = Comic_Neue({
+  weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font-comic",
 });
 
 export const metadata = {
@@ -20,15 +19,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen overflow-x-hidden`}
+        className={`${comicFont.variable} antialiased relative min-h-screen overflow-x-hidden flex flex-col`}
+        style={{ fontFamily: 'var(--font-comic), cursive' }}
       >
         {/* Background with Zoom Effect */}
         <BackgroundZoom />
 
+        {/* Header */}
+        <Header />
+
         {/* Main Content */}
-        <main className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-12">
+        <main className="relative z-10 ">
           {children}
         </main>
+
+        {/* Footer */}
+        <Footer />
       </body>
     </html>
   );
