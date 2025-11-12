@@ -1,69 +1,73 @@
 'use client';
-import { Sprout, Leaf, TreePine } from 'lucide-react';
+
+import Image from 'next/image';
 
 export default function Hero() {
-  const cards = [
-    {
-      id: 1,
-      title: 'The Seed',
-      icon: <Sprout className="w-12 h-12 text-green-400" />,
-    },
-    {
-      id: 2,
-      title: 'Sowed',
-      icon: <Leaf className="w-12 h-12 text-blue-400" />,
-    },
-    {
-      id: 3,
-      title: 'The Impact Created',
-      icon: <TreePine className="w-12 h-12 text-purple-400" />,
-    },
-  ];
-
   return (
     <section
       id="home"
       className="relative h-screen w-screen overflow-hidden flex items-center justify-center"
     >
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/herovideo.mp4" type="video/mp4" />
-      </video>
+      
+      <main className="container">
+        <section className="intro">
+          <h1>Hey Jay Intro</h1>
+        </section>
+          
+        <section className="sticky">
+          <div className="sticky-headear">
+            three pillers for one purpose 
+          </div>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+          {/* Crard Container  */}
+          <div className="card-container">
 
-      {/* Content */}
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full text-center">
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {cards.map((card) => (
-            <div
-              key={card.id}
-              className="flex flex-col items-center justify-center text-center space-y-2"
-            >
-              <div>{card.icon}</div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-white">
-                {card.title}
-              </h3>
+            {/* Card - 1  */}
+            <div className="card" id="card-1">
+              <div className="card-front">
+                <Image src={"/seed.jpg"} width={200} height={200}></Image>
+              </div>
+              <div className="card-back">
+                <span>( 01 )</span>
+                <p>Seed</p>
+              </div>
             </div>
-          ))}
-        </div>
 
-        {/* Tagline */}
-        <div className="backdrop-blur-md bg-white/10 border border-white/10 rounded-full px-4 py-2 inline-block mx-auto">
-          <p className="text-xs sm:text-sm text-white/90 font-light leading-snug">
-            From a simple idea to a movement of change, we&apos;re transforming waste into wonder,
-            one piece at a time.
-          </p>
-        </div>
-      </div>
+
+            {/* Card - 2  */}
+            <div className="card" id="card-2">
+              <div className="card-front">
+                <Image src={"/growing tree.jpg"} width={200} height={200}></Image>
+              </div>
+              <div className="card-back">
+                <span>( 01 )</span>
+                <p>Seed</p>
+              </div>
+            </div>
+
+
+            {/* Card - 3  */}
+            <div className="card" id="card-3">
+              <div className="card-front">
+                <Image src={"/tree.jpg"} width={200} height={200}></Image>
+              </div>
+              <div className="card-back">
+                <span>( 01 )</span>
+                <p>Seed</p>
+              </div>
+            </div>
+
+           
+
+          </div>
+        </section>
+
+        <section class="outro">
+          <h1> Hey jay outro</h1>
+        </section>
+      </main>
+
+      
     </section>
   );
 }
