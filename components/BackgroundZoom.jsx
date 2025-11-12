@@ -60,7 +60,7 @@ export default function BackgroundZoom() {
 
       {/* Grass Image at Bottom with Downward Movement */}
       <section
-        className="fixed bottom-[-100] left-0 right-0 h-32 sm:h-48 md:h-64 z-50 pointer-events-none"
+        className="fixed bottom-[-100] left-0 right-0 h-32 sm:h-48 md:h-100 z-50 pointer-events-none"
         style={{
           transform: `translateY(${grassY}%)`,
           transition: 'transform 0.1s ease-out'

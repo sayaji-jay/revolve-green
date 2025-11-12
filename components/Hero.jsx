@@ -5,6 +5,8 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { useState,useEffect } from 'react';
+import { Sprout, Leaf, TreePine } from 'lucide-react';
+
 export default function Hero() {
 
   const [isGapanimationcomplaited,setGapanimationcomplaited] = useState(false);
@@ -18,69 +20,98 @@ export default function Hero() {
     const mm = gsap.matchMedia();
 
     // // For mobile screens (max-width: 999px) - No animations, blank styles
-    // mm.add("(max-width: 999px)", () => {
-    //   // Reset all styles to blank/default
-    //   gsap.set("#card-1, #card-2, #card-3", { clearProps: "all" });
-    //   gsap.set(".sticky-header h1", { clearProps: "all" });
-    //   gsap.set(".card-container", { clearProps: "all" });
+    mm.add("(max-width: 999px)", () => {
+      // Reset all styles to blank/default
+      gsap.set("#card-1, #card-2, #card-3", { clearProps: "all" });
+      gsap.set(".card-container", { clearProps: "all" });
 
-    //   return () => {
-    //     // Cleanup for mobile
-    //   };
-    // });
+      return () => {
+        // Cleanup for mobile
+      };
+    });
 
     // For desktop screens (min-width: 1000px) - Apply animations
     mm.add("(min-width: 500px)", () => {
+
+      // Set initial state for cards - below screen
+      gsap.set(".card-container", { y: "100vh", opacity: 0 });
+
       ScrollTrigger.create({
           trigger: ".sticky-section",
           start: "top top",
-          end: `+=${window.innerHeight * 4}`,
+          end: `+=${window.innerHeight * 2.5}`,
           pin: true,
           pinSpacing: true,
           scrub: 1,
           onUpdate: (self) => {
               const progress = self.progress;
-                          
 
-            if (progress => 0.1 && progress <= 0.25) {
-              const headerProgress = gsap.utils.mapRange(0.1, 0.25, 0, 1, progress);
-              const yValue = gsap.utils.mapRange(0, 1, 40, 0, headerProgress);
-              const opacityValue = gsap.utils.mapRange(0, 1, 0, 1, headerProgress);
+              // Fade out tagline and bring cards up (0% to 20%)
+              if (progress <= 0.2) {
+                const fadeProgress = progress / 0.2;
+                const taglineOpacity = 1 - fadeProgress;
+                const cardY = gsap.utils.mapRange(0, 1, 100, 0, fadeProgress);
+                const cardOpacity = fadeProgress;
 
-              gsap.set(".sticky-section-header h1", { y: yValue, opacity: opacityValue });
-            }
-            else if (progress < 0.1) {
-              gsap.set(".sticky-section-header h1", { y: 40, opacity: 0 });
-            } 
-            else if (progress > 0.25) {    
-              gsap.set(".sticky-section-header h1", { y: 0, opacity: 1 });  
-            }
+                gsap.set(".video-tagline", { opacity: taglineOpacity });
+                gsap.set(".card-container", { y: `${cardY}vh`, opacity: cardOpacity });
+              } else {
+                gsap.set(".video-tagline", { opacity: 0 });
+                gsap.set(".card-container", { y: 0, opacity: 1 });
+              }
 
 
-            if (progress <= 0.25) {
-              const widthPercentage = gsap.utils.mapRange(0, 0.25, 75, 60, progress);
+            // Card width animation (20% to 40%)
+            if (progress >= 0.2 && progress <= 0.4) {
+              const widthPercentage = gsap.utils.mapRange(0.2, 0.4, 60, 55, progress);
               gsap.set(".card-container", { width: `${widthPercentage}%` });
-            }else{
+            } else if (progress < 0.2) {
               gsap.set(".card-container", { width: `60%` });
+            } else {
+              gsap.set(".card-container", { width: `55%` });
             }
 
 
-            if (progress >= 0.35 && !isGapanimationcomplaited) {
+            // Card separation animation (starts at 45%)
+            if (progress >= 0.45 && !isGapanimationcomplaited) {
               gsap.to(".card-container", { gap: 20, duration: 0.5, ease: "power3.out" });
               gsap.to(["#card-1","#card-2","#card-3"], { borderRadius: 20, duration: 0.5, ease: "power3.out" });
+              // Show the content overlays when cards separate
+              gsap.to(".card-content-overlay", { opacity: 1, duration: 0.6, ease: "power3.out", delay: 0.3 });
 
               setGapanimationcomplaited(true);
-            }else if (progress < 0.35 && isGapanimationcomplaited) {
+            }else if (progress < 0.45 && isGapanimationcomplaited) {
 
               gsap.to(".card-container", { gap: 0, duration: 0.5, ease: "power3.out" });
               gsap.to("#card-1", { borderRadius: "20px 0 0 20px", duration: 0.5, ease: "power3.out" });
               gsap.to("#card-2", { borderRadius: "0", duration: 0.5, ease: "power3.out" });
               gsap.to("#card-3", { borderRadius: "0 20px 20px 0", duration: 0.5, ease: "power3.out" });
+              // Hide the content overlays when cards come together
+              gsap.to(".card-content-overlay", { opacity: 0, duration: 0.3, ease: "power3.in" });
 
               setGapanimationcomplaited(false);
             }
-          }     
-      
+
+            // Card flip animation (starts at 70%)
+            if (progress >= 0.7 && !isFlipanimationcomplaited) {
+              gsap.to(["#card-1","#card-2","#card-3"], {
+                rotateY: 180,
+                duration: 0.8,
+                ease: "power2.inOut",
+                stagger: 0.15
+              });
+              setFlipanimationcomplaited(true);
+            } else if (progress < 0.7 && isFlipanimationcomplaited) {
+              gsap.to(["#card-1","#card-2","#card-3"], {
+                rotateY: 0,
+                duration: 0.8,
+                ease: "power2.inOut",
+                stagger: 0.15
+              });
+              setFlipanimationcomplaited(false);
+            }
+          }
+
       });
 
       return () => {
@@ -134,43 +165,60 @@ export default function Hero() {
       id="home"
       className="relative w-screen overflow-x-hidden"
     >
-
-      <main className="container mx-auto text-white">
-
-        {/* Intro */}
-        <section className="relative min-h-screen flex items-center justify-center p-4">
-          <h1 className="text-3xl md:text-5xl font-bold">Hey Jay Intro</h1>
-        </section>
-
+      <main className="relative text-white">
 
         {/* Cards Section [Sticky] */}
-        <section className="sticky-section flex justify-center items-center min-h-screen px-4 md:px-8">
+        <section className="sticky-section relative flex justify-center items-center min-h-screen px-4 md:px-8">
 
-          {/* Sticky Header */}
-          <div className="sticky-section-header absolute top-[10%] md:top-[20%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-10 px-4">
-            <h1 className='text-center text-xl md:text-3xl lg:text-4xl opacity-0'>Three Pillars with one Purpose</h1>
+          {/* Background Video - Sticky */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/herovideo.mp4" type="video/mp4" />
+            </video>
+
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-black/60"></div>
+          </div>
+
+          {/* Tagline - Initially visible */}
+          <div className="video-tagline absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8 z-20 transition-opacity duration-700">
+            <div className="backdrop-blur-md bg-white/10 border border-white/10 rounded-full px-6 py-3 inline-block">
+              <p className="text-sm sm:text-base text-white/90 font-light leading-snug">
+                From a simple idea to a movement of change, we&apos;re transforming waste into wonder,
+                one piece at a time.
+              </p>
+            </div>
           </div>
 
           {/* Card Container */}
           <div
-            className="card-container relative w-full md:w-[90%] lg:w-[75%] flex flex-col md:flex-row gap-4 md:gap-0"
+            className="card-container relative w-full md:w-[70%] lg:w-[55%] flex flex-col md:flex-row gap-4 md:gap-0 z-20"
             style={{ perspective: '1000px' }}
           >
 
             {/* Card - 1 */}
             <div
-              className="relative w-full md:flex-1 md:w-auto max-w-md md:max-w-none mx-auto rounded-[20px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-none md:rounded-br-none overflow-hidden bg-gray-800"
+              className="card-flip-container relative w-full md:flex-1 md:w-auto max-w-md md:max-w-none mx-auto bg-gray-800"
               style={{
-                aspectRatio: '5/7',
+                aspectRatio: '4/7',
                 transformStyle: 'preserve-3d',
-                transformOrigin: 'top'
+                transformOrigin: 'center'
               }}
               id="card-1"
             >
               {/* Card Front */}
               <div
-                className="absolute top-0 left-0 w-full h-full overflow-hidden"
-                style={{ backfaceVisibility: 'hidden' }}
+                className="card-front absolute top-0 left-0 w-full h-full overflow-hidden rounded-[20px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-none md:rounded-br-none"
+                style={{
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden'
+                }}
               >
                 <Image
                   src="/seed.jpg"
@@ -180,74 +228,109 @@ export default function Hero() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   priority
                 />
+                {/* Dark overlay for better text visibility */}
+                <div className="absolute inset-0 bg-black/40"></div>
+
+                {/* Content overlay - visible when cards are separated */}
+                <div className="card-content-overlay absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+                  <Sprout className="w-12 h-12 md:w-16 md:h-16 text-green-400 mb-4" />
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
+                    The Seed
+                  </h3>
+                </div>
               </div>
 
               {/* Card Back */}
               <div
-                className="absolute top-0 left-0 w-full h-full overflow-hidden flex flex-col items-center justify-center"
+                className="card-back absolute top-0 left-0 w-full h-full bg-black rounded-[20px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-none md:rounded-br-none flex flex-col items-center justify-center text-center p-8 md:p-10"
                 style={{
                   backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
                   transform: 'rotateY(180deg)'
                 }}
               >
-                <span className='absolute top-1 left-2'>( 01 )</span>
-                <p>Seed</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Step - 1</h2>
+                <Sprout className="w-20 h-20 md:w-24 md:h-24 text-green-400 mb-6" />
+                <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed max-w-md">
+                  The beginning of our journey—planting the seed of change through awareness and intention.
+                </p>
               </div>
             </div>
 
 
             {/* Card - 2 */}
             <div
-              className="relative w-full md:flex-1 md:w-auto max-w-md md:max-w-none mx-auto rounded-[20px] md:rounded-none overflow-hidden bg-gray-800"
+              className="card-flip-container relative w-full md:flex-1 md:w-auto max-w-md md:max-w-none mx-auto bg-gray-800"
               style={{
-                aspectRatio: '5/7',
+                aspectRatio: '4/7',
                 transformStyle: 'preserve-3d',
-                transformOrigin: 'top'
+                transformOrigin: 'center'
               }}
               id="card-2"
             >
               {/* Card Front */}
               <div
-                className="absolute top-0 left-0 w-full h-full overflow-hidden"
-                style={{ backfaceVisibility: 'hidden' }}
+                className="card-front absolute top-0 left-0 w-full h-full overflow-hidden rounded-[20px]"
+                style={{
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden'
+                }}
               >
                 <Image
                   src="/growing tree.jpg"
                   alt="Growing Tree"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
+                  style={{ objectPosition: 'center 30%' }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
+                {/* Dark overlay for better text visibility */}
+                <div className="absolute inset-0 bg-black/40"></div>
+
+                {/* Content overlay - visible when cards are separated */}
+                <div className="card-content-overlay absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+                  <Leaf className="w-12 h-12 md:w-16 md:h-16 text-blue-400 mb-4" />
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
+                    Sowed
+                  </h3>
+                </div>
               </div>
 
               {/* Card Back */}
               <div
-                className="absolute top-0 left-0 w-full h-full overflow-hidden flex flex-col items-center justify-center"
+                className="card-back absolute top-0 left-0 w-full h-full bg-black rounded-[20px] flex flex-col items-center justify-center text-center p-8 md:p-10"
                 style={{
                   backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
                   transform: 'rotateY(180deg)'
                 }}
               >
-                <span className='absolute top-1 left-2'>( 02 )</span>
-                <p>Grow</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Step - 2</h2>
+                <Leaf className="w-20 h-20 md:w-24 md:h-24 text-blue-400 mb-6" />
+                <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed max-w-md">
+                  Taking action—nurturing growth through consistent effort and dedication to our mission.
+                </p>
               </div>
             </div>
 
 
             {/* Card - 3 */}
             <div
-              className="relative w-full md:flex-1 md:w-auto max-w-md md:max-w-none mx-auto rounded-[20px] md:rounded-tr-[20px] md:rounded-br-[20px] md:rounded-tl-none md:rounded-bl-none overflow-hidden bg-gray-800"
+              className="card-flip-container relative w-full md:flex-1 md:w-auto max-w-md md:max-w-none mx-auto bg-gray-800"
               style={{
-                aspectRatio: '5/7',
+                aspectRatio: '4/7',
                 transformStyle: 'preserve-3d',
-                transformOrigin: 'top'
+                transformOrigin: 'center'
               }}
               id="card-3"
             >
               {/* Card Front */}
               <div
-                className="absolute top-0 left-0 w-full h-full overflow-hidden"
-                style={{ backfaceVisibility: 'hidden' }}
+                className="card-front absolute top-0 left-0 w-full h-full overflow-hidden rounded-[20px] md:rounded-tr-[20px] md:rounded-br-[20px] md:rounded-tl-none md:rounded-bl-none"
+                style={{
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden'
+                }}
               >
                 <Image
                   src="/tree.jpg"
@@ -256,29 +339,38 @@ export default function Hero() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
+                {/* Dark overlay for better text visibility */}
+                <div className="absolute inset-0 bg-black/40"></div>
+
+                {/* Content overlay - visible when cards are separated */}
+                <div className="card-content-overlay absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+                  <TreePine className="w-12 h-12 md:w-16 md:h-16 text-purple-400 mb-4" />
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
+                    The Impact Created
+                  </h3>
+                </div>
               </div>
 
               {/* Card Back */}
               <div
-                className="absolute top-0 left-0 w-full h-full overflow-hidden flex flex-col items-center justify-center"
+                className="card-back absolute top-0 left-0 w-full h-full bg-black rounded-[20px] md:rounded-tr-[20px] md:rounded-br-[20px] md:rounded-tl-none md:rounded-bl-none flex flex-col items-center justify-center text-center p-8 md:p-10"
                 style={{
                   backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
                   transform: 'rotateY(180deg)'
                 }}
               >
-                <span className='absolute top-1 left-2'>( 03 )</span>
-                <p>Tree</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Step - 3</h2>
+                <TreePine className="w-20 h-20 md:w-24 md:h-24 text-purple-400 mb-6" />
+                <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed max-w-md">
+                  Creating change—transforming waste into wonder and building a sustainable future together.
+                </p>
               </div>
             </div>
 
           </div>
         </section>
 
-
-        {/* Outro */}
-        <section className="relative min-h-screen flex items-center justify-center p-4">
-          <h1 className="text-3xl md:text-5xl font-bold">Hey Jay Outro</h1>
-        </section>
       </main>
 
     </section>
