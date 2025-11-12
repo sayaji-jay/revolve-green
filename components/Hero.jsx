@@ -7,21 +7,12 @@ import Lenis from 'lenis';
 import { useState,useEffect } from 'react';
 export default function Hero() {
 
-  gsap.registerPlugin(ScrollTrigger);
-
   const [isGapanimationcomplaited,setGapanimationcomplaited] = useState(false);
   const [isFlipanimationcomplaited,setFlipanimationcomplaited] = useState(false);
 
 
-  const lenis = new Lenis();
-  lenis.on('scroll', ScrollTrigger.update);
-
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-
-
   const initAnimations = () => {
+    gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     const mm = gsap.matchMedia();
@@ -99,29 +90,40 @@ export default function Hero() {
 
   };
 
-  initAnimations();
-
   useEffect(() => {
-      let timeout;
+    // Initialize Lenis smooth scroll
+    const lenis = new Lenis();
+    lenis.on('scroll', ScrollTrigger.update);
 
-      const handleResize = () => {
-        // Clear previous timeout
-        if (timeout) clearTimeout(timeout);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
 
-        // Set new timeout
-        timeout = setTimeout(() => {
-          initialAnimation(); // aapka animation function
-        }, 250); // 250ms delay
-      };
+    // Initialize animations
+    initAnimations();
 
-      window.addEventListener('resize', handleResize);
+    let timeout;
 
-      // Clean up
-      return () => {
-        window.removeEventListener('resize', handleResize);
-        if (timeout) clearTimeout(timeout);
-      };
-    }, []);
+    const handleResize = () => {
+      // Clear previous timeout
+      if (timeout) clearTimeout(timeout);
+
+      // Set new timeout
+      timeout = setTimeout(() => {
+        initAnimations(); // Re-initialize animations on resize
+      }, 250); // 250ms delay
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (timeout) clearTimeout(timeout);
+      lenis.destroy();
+      gsap.ticker.remove((time) => lenis.raf(time * 1000));
+    };
+  }, []);
 
 
   
@@ -130,10 +132,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-screen overflow-x-hidden bg-black"
+      className="relative w-screen overflow-x-hidden"
     >
 
-      <main className="container mx-auto bg-black text-white">
+      <main className="container mx-auto text-white">
 
         {/* Intro */}
         <section className="relative min-h-screen flex items-center justify-center p-4">
@@ -184,8 +186,8 @@ export default function Hero() {
               <div
                 className="absolute top-0 left-0 w-full h-full overflow-hidden flex flex-col items-center justify-center"
                 style={{
-                  // backfaceVisibility: 'hidden',
-                  // transform: 'rotateY(180deg)'
+                  backfaceVisibility: 'hidden',
+                  transform: 'rotateY(180deg)'
                 }}
               >
                 <span className='absolute top-1 left-2'>( 01 )</span>
@@ -222,8 +224,8 @@ export default function Hero() {
               <div
                 className="absolute top-0 left-0 w-full h-full overflow-hidden flex flex-col items-center justify-center"
                 style={{
-                  // backfaceVisibility: 'hidden',
-                  // transform: 'rotateY(180deg)'
+                  backfaceVisibility: 'hidden',
+                  transform: 'rotateY(180deg)'
                 }}
               >
                 <span className='absolute top-1 left-2'>( 02 )</span>
@@ -260,8 +262,8 @@ export default function Hero() {
               <div
                 className="absolute top-0 left-0 w-full h-full overflow-hidden flex flex-col items-center justify-center"
                 style={{
-                  // backfaceVisibility: 'hidden',
-                  // transform: 'rotateY(180deg)'
+                  backfaceVisibility: 'hidden',
+                  transform: 'rotateY(180deg)'
                 }}
               >
                 <span className='absolute top-1 left-2'>( 03 )</span>
