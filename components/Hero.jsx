@@ -1,8 +1,132 @@
 'use client';
 
 import Image from 'next/image';
-
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
+import { useState,useEffect } from 'react';
 export default function Hero() {
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const [isGapanimationcomplaited,setGapanimationcomplaited] = useState(false);
+  const [isFlipanimationcomplaited,setFlipanimationcomplaited] = useState(false);
+
+
+  const lenis = new Lenis();
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+
+  const initAnimations = () => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
+    const mm = gsap.matchMedia();
+
+    // // For mobile screens (max-width: 999px) - No animations, blank styles
+    // mm.add("(max-width: 999px)", () => {
+    //   // Reset all styles to blank/default
+    //   gsap.set("#card-1, #card-2, #card-3", { clearProps: "all" });
+    //   gsap.set(".sticky-header h1", { clearProps: "all" });
+    //   gsap.set(".card-container", { clearProps: "all" });
+
+    //   return () => {
+    //     // Cleanup for mobile
+    //   };
+    // });
+
+    // For desktop screens (min-width: 1000px) - Apply animations
+    mm.add("(min-width: 500px)", () => {
+      ScrollTrigger.create({
+          trigger: ".sticky-section",
+          start: "top top",
+          end: `+=${window.innerHeight * 4}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 1,
+          onUpdate: (self) => {
+              const progress = self.progress;
+                          
+
+            if (progress => 0.1 && progress <= 0.25) {
+              const headerProgress = gsap.utils.mapRange(0.1, 0.25, 0, 1, progress);
+              const yValue = gsap.utils.mapRange(0, 1, 40, 0, headerProgress);
+              const opacityValue = gsap.utils.mapRange(0, 1, 0, 1, headerProgress);
+
+              gsap.set(".sticky-section-header h1", { y: yValue, opacity: opacityValue });
+            }
+            else if (progress < 0.1) {
+              gsap.set(".sticky-section-header h1", { y: 40, opacity: 0 });
+            } 
+            else if (progress > 0.25) {    
+              gsap.set(".sticky-section-header h1", { y: 0, opacity: 1 });  
+            }
+
+
+            if (progress <= 0.25) {
+              const widthPercentage = gsap.utils.mapRange(0, 0.25, 75, 60, progress);
+              gsap.set(".card-container", { width: `${widthPercentage}%` });
+            }else{
+              gsap.set(".card-container", { width: `60%` });
+            }
+
+
+            if (progress >= 0.35 && !isGapanimationcomplaited) {
+              gsap.to(".card-container", { gap: 20, duration: 0.5, ease: "power3.out" });
+              gsap.to(["#card-1","#card-2","#card-3"], { borderRadius: 20, duration: 0.5, ease: "power3.out" });
+
+              setGapanimationcomplaited(true);
+            }else if (progress < 0.35 && isGapanimationcomplaited) {
+
+              gsap.to(".card-container", { gap: 0, duration: 0.5, ease: "power3.out" });
+              gsap.to("#card-1", { borderRadius: "20px 0 0 20px", duration: 0.5, ease: "power3.out" });
+              gsap.to("#card-2", { borderRadius: "0", duration: 0.5, ease: "power3.out" });
+              gsap.to("#card-3", { borderRadius: "0 20px 20px 0", duration: 0.5, ease: "power3.out" });
+
+              setGapanimationcomplaited(false);
+            }
+          }     
+      
+      });
+
+      return () => {
+        // Cleanup for desktop
+      };
+    });
+
+  };
+
+  initAnimations();
+
+  useEffect(() => {
+      let timeout;
+
+      const handleResize = () => {
+        // Clear previous timeout
+        if (timeout) clearTimeout(timeout);
+
+        // Set new timeout
+        timeout = setTimeout(() => {
+          initialAnimation(); // aapka animation function
+        }, 250); // 250ms delay
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      // Clean up
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        if (timeout) clearTimeout(timeout);
+      };
+    }, []);
+
+
+  
+
+
   return (
     <section
       id="home"
@@ -18,16 +142,16 @@ export default function Hero() {
 
 
         {/* Cards Section [Sticky] */}
-        <section className="flex justify-center items-center min-h-screen px-4 md:px-8">
+        <section className="sticky-section flex justify-center items-center min-h-screen px-4 md:px-8">
 
           {/* Sticky Header */}
-          <div className="absolute top-[10%] md:top-[20%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-10 px-4">
+          <div className="sticky-section-header absolute top-[10%] md:top-[20%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-10 px-4">
             <h1 className='text-center text-xl md:text-3xl lg:text-4xl opacity-0'>Three Pillars with one Purpose</h1>
           </div>
 
           {/* Card Container */}
           <div
-            className="relative w-full md:w-[90%] lg:w-[75%] flex flex-col md:flex-row gap-4 md:gap-0"
+            className="card-container relative w-full md:w-[90%] lg:w-[75%] flex flex-col md:flex-row gap-4 md:gap-0"
             style={{ perspective: '1000px' }}
           >
 
