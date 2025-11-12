@@ -11,6 +11,8 @@ export default function Home() {
       <section className="py-8 sm:py-12 md:py-16">
         <BentoGrid />
       </section>
+
+      
     </div>
   );
 }
