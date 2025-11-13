@@ -221,7 +221,7 @@ export default function Hero() {
               alt="Revolve Green Logo"
               width={500}
               height={500}
-              className="max-w-xs sm:max-w-sm lg:max-w-md w-full h-auto object-contain drop-shadow-2xl transition-all duration-300"
+              className="max-w-xs sm:max-w-sm lg:max-w-md w-full h-auto object-contain drop-shadow-2xl transition-all duration-300 animate-spin-slow"
               priority
             />
           </div>

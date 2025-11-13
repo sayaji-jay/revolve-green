@@ -52,7 +52,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="Revolve Green Logo"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain animate-spin-slow"
+            />
             <h1
               className={`text-2xl md:text-3xl font-bold transition-colors duration-300 ${
                 scrolled ? 'text-green-800' : 'text-white'
@@ -72,38 +77,26 @@ export default function Header() {
                   if (item === 'Bio Plastics') return '/bio-plastics';
                   if (item === 'Handmade Products') return '/handmade-products';
                   if (item === 'Sajja Decor') return '/sajja-decor';
+                  if (item === 'Contact') return '/contact';
                   return `#${item.toLowerCase()}`;
                 };
 
-                const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor'].includes(item);
-
                 return (
                   <li key={item}>
-                    {isLink ? (
-                      <Link
-                        href={getHref()}
-                        className={`text-sm md:text-base font-bold transition-colors duration-300 ${
-                          scrolled
-                            ? 'text-green-800 hover:text-green-600'
-                            : 'text-white hover:text-green-200'
-                        }`}
-                        style={{ fontFamily: 'var(--font-comic), cursive' }}
-                      >
-                        {item}
-                      </Link>
-                    ) : (
-                      <a
-                        href={getHref()}
-                        className={`text-sm md:text-base font-bold transition-colors duration-300 ${
-                          scrolled
-                            ? 'text-green-800 hover:text-green-600'
-                            : 'text-white hover:text-green-200'
-                        }`}
-                        style={{ fontFamily: 'var(--font-comic), cursive' }}
-                      >
-                        {item}
-                      </a>
-                    )}
+                    <Link
+                      href={getHref()}
+                      className={`text-sm md:text-base font-bold transition-all duration-300 relative group ${
+                        scrolled
+                          ? 'text-green-800 hover:text-green-600'
+                          : 'text-white hover:text-green-200'
+                      }`}
+                      style={{ fontFamily: 'var(--font-comic), cursive' }}
+                    >
+                      {item}
+                      <span className={`absolute left-0 -bottom-1 h-[3px] w-0 group-hover:w-full transition-all duration-300 ${
+                        scrolled ? 'bg-green-600' : 'bg-white'
+                      }`}></span>
+                    </Link>
                   </li>
                 );
               })}
@@ -137,10 +130,12 @@ export default function Header() {
                       if (item === 'Bio Plastics') return '/bio-plastics';
                       if (item === 'Handmade Products') return '/handmade-products';
                       if (item === 'Sajja Decor') return '/sajja-decor';
+                      if (item === 'Contact') return '/contact';
                       return `#${item.toLowerCase()}`;
                     };
 
-                    const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor'].includes(item);
+                    const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor', 'Contact'].includes(item);
+                    const isImportant = ['Bio Plastics', 'Handmade Products', 'Sajja Decor'].includes(item);
 
                     return (
                       <li key={item}>
@@ -148,19 +143,25 @@ export default function Header() {
                           <Link
                             href={getHref()}
                             onClick={() => setOpen(false)}
-                            className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
+                            className="text-lg font-bold text-green-800 hover:text-green-600 transition-all block relative group pb-1"
                             style={{ fontFamily: 'var(--font-comic), cursive' }}
                           >
                             {item}
+                            {isImportant && (
+                              <span className="absolute left-0 bottom-0 h-[3px] w-0 group-hover:w-full transition-all duration-300 bg-green-600"></span>
+                            )}
                           </Link>
                         ) : (
                           <a
                             href={getHref()}
                             onClick={() => setOpen(false)}
-                            className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
+                            className="text-lg font-bold text-green-800 hover:text-green-600 transition-all block relative group pb-1"
                             style={{ fontFamily: 'var(--font-comic), cursive' }}
                           >
                             {item}
+                            {isImportant && (
+                              <span className="absolute left-0 bottom-0 h-[3px] w-0 group-hover:w-full transition-all duration-300 bg-green-600"></span>
+                            )}
                           </a>
                         )}
                       </li>

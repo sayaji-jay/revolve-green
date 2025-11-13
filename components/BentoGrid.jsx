@@ -42,7 +42,7 @@ export default function SustainabilityBento() {
             <img
               src="/logo.png"
               alt="Revolve Green Logo"
-              className="w-16 h-16 md:w-20 md:h-20 object-contain"
+              className="w-16 h-16 md:w-20 md:h-20 object-contain animate-spin-slow"
             />
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-emerald-800">
               REVOLVE GREEN
@@ -114,18 +114,18 @@ export default function SustainabilityBento() {
             </Link>
 
             {/* Card 3 - Sajja Decor Vertical */}
-            <Link href="/sajja-decor" className="card-animate bg-gradient-to-br from-purple-600 to-purple-800 rounded-3xl p-6 flex flex-col justify-between overflow-hidden relative group hover:shadow-2xl transition-all duration-300 min-h-[350px] hover:scale-[1.02]">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-pink-400 opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+            <Link href="/sajja-decor" className="card-animate bg-gradient-to-br from-green-600 to-green-800 rounded-3xl p-6 flex flex-col justify-between overflow-hidden relative group hover:shadow-2xl transition-all duration-300 min-h-[350px] hover:scale-[1.02]">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-green-400 opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex items-center gap-2 mb-3">
-                  <PartyPopper className="w-8 h-8 text-pink-300" />
-                  <span className="text-pink-300 text-sm font-semibold tracking-wider">VERTICAL 3</span>
+                  <PartyPopper className="w-8 h-8 text-green-300" />
+                  <span className="text-green-300 text-sm font-semibold tracking-wider">VERTICAL 3</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-3">
                   Sajja Upcycled Decor Services
                 </h2>
                 <div className="space-y-2 text-white/90 text-sm leading-relaxed flex-grow">
-                  <p className="font-semibold text-pink-300">Creating Zero-Waste Events</p>
+                  <p className="font-semibold text-green-300">Creating Zero-Waste Events</p>
                   <ul className="space-y-1.5 ml-4 mt-2">
                     <li>• Upcycled Event Decorations</li>
                     <li>• Rental-Based Decor</li>
@@ -133,7 +133,7 @@ export default function SustainabilityBento() {
                     <li>• Custom Installations</li>
                   </ul>
                 </div>
-                <div className="mt-4 text-pink-300 font-semibold flex items-center gap-2 pt-4 border-t border-pink-300/30">
+                <div className="mt-4 text-green-300 font-semibold flex items-center gap-2 pt-4 border-t border-pink-300/30">
                   View Sajja Services →
                 </div>
               </div>
@@ -168,14 +168,12 @@ export default function SustainabilityBento() {
           </div>
 
           {/* Image Card 3 */}
-          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
-            <div className="relative z-10 w-full">
-              <img
-                src="/logo.png"
-                alt="Revolve Green"
-                className="w-full h-full object-contain rounded-2xl shadow-lg bg-white p-4"
-              />
-            </div>
+          <div className="card-animate md:col-span-1 bg-white rounded-2xl overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px] flex items-center justify-center p-6">
+            <img
+              src="/logo.png"
+              alt="Revolve Green"
+              className="w-full h-full object-contain animate-spin-slow"
+            />
           </div>
 
   
