@@ -80,7 +80,7 @@ function ProductCarousel({ products, categoryLabel, Icon }) {
   );
 }
 
-export default function Products() {
+export default function HandmadeProductsPage() {
   // Product data organized by category
   const mlpProducts = [
     { name: 'Coaster', diameter: '4"', price: '₹175' },

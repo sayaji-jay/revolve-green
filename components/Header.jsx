@@ -17,7 +17,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
-  const menuItems = ['Home', 'Sajja', 'Products', 'Contact'];
+  const menuItems = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor', 'Contact'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,59 +66,47 @@ export default function Header() {
           {/* Desktop Menu Items */}
           <nav className="hidden md:block">
             <ul className="flex items-center space-x-6 md:space-x-8">
-              {menuItems.map((item) => (
-                <li key={item}>
-                  {item === 'Sajja' ? (
-                    <Link
-                      href="/sajja"
-                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${
-                        scrolled
-                          ? 'text-green-800 hover:text-green-600'
-                          : 'text-white hover:text-green-200'
-                      }`}
-                      style={{ fontFamily: 'var(--font-comic), cursive' }}
-                    >
-                      {item}
-                    </Link>
-                  ) : item === 'Products' ? (
-                    <Link
-                      href="/products"
-                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${
-                        scrolled
-                          ? 'text-green-800 hover:text-green-600'
-                          : 'text-white hover:text-green-200'
-                      }`}
-                      style={{ fontFamily: 'var(--font-comic), cursive' }}
-                    >
-                      {item}
-                    </Link>
-                  ) : item === 'Home' ? (
-                    <Link
-                      href="/"
-                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${
-                        scrolled
-                          ? 'text-green-800 hover:text-green-600'
-                          : 'text-white hover:text-green-200'
-                      }`}
-                      style={{ fontFamily: 'var(--font-comic), cursive' }}
-                    >
-                      {item}
-                    </Link>
-                  ) : (
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${
-                        scrolled
-                          ? 'text-green-800 hover:text-green-600'
-                          : 'text-white hover:text-green-200'
-                      }`}
-                      style={{ fontFamily: 'var(--font-comic), cursive' }}
-                    >
-                      {item}
-                    </a>
-                  )}
-                </li>
-              ))}
+              {menuItems.map((item) => {
+                const getHref = () => {
+                  if (item === 'Home') return '/';
+                  if (item === 'Bio Plastics') return '/bio-plastics';
+                  if (item === 'Handmade Products') return '/handmade-products';
+                  if (item === 'Sajja Decor') return '/sajja-decor';
+                  return `#${item.toLowerCase()}`;
+                };
+
+                const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor'].includes(item);
+
+                return (
+                  <li key={item}>
+                    {isLink ? (
+                      <Link
+                        href={getHref()}
+                        className={`text-sm md:text-base font-bold transition-colors duration-300 ${
+                          scrolled
+                            ? 'text-green-800 hover:text-green-600'
+                            : 'text-white hover:text-green-200'
+                        }`}
+                        style={{ fontFamily: 'var(--font-comic), cursive' }}
+                      >
+                        {item}
+                      </Link>
+                    ) : (
+                      <a
+                        href={getHref()}
+                        className={`text-sm md:text-base font-bold transition-colors duration-300 ${
+                          scrolled
+                            ? 'text-green-800 hover:text-green-600'
+                            : 'text-white hover:text-green-200'
+                        }`}
+                        style={{ fontFamily: 'var(--font-comic), cursive' }}
+                      >
+                        {item}
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -143,47 +131,41 @@ export default function Header() {
               </SheetHeader>
               <nav className="mt-8">
                 <ul className="flex flex-col space-y-6">
-                  {menuItems.map((item) => (
-                    <li key={item}>
-                      {item === 'Sajja' ? (
-                        <Link
-                          href="/sajja"
-                          onClick={() => setOpen(false)}
-                          className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
-                          style={{ fontFamily: 'var(--font-comic), cursive' }}
-                        >
-                          {item}
-                        </Link>
-                      ) : item === 'Products' ? (
-                        <Link
-                          href="/products"
-                          onClick={() => setOpen(false)}
-                          className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
-                          style={{ fontFamily: 'var(--font-comic), cursive' }}
-                        >
-                          {item}
-                        </Link>
-                      ) : item === 'Home' ? (
-                        <Link
-                          href="/"
-                          onClick={() => setOpen(false)}
-                          className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
-                          style={{ fontFamily: 'var(--font-comic), cursive' }}
-                        >
-                          {item}
-                        </Link>
-                      ) : (
-                        <a
-                          href={`#${item.toLowerCase()}`}
-                          onClick={() => setOpen(false)}
-                          className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
-                          style={{ fontFamily: 'var(--font-comic), cursive' }}
-                        >
-                          {item}
-                        </a>
-                      )}
-                    </li>
-                  ))}
+                  {menuItems.map((item) => {
+                    const getHref = () => {
+                      if (item === 'Home') return '/';
+                      if (item === 'Bio Plastics') return '/bio-plastics';
+                      if (item === 'Handmade Products') return '/handmade-products';
+                      if (item === 'Sajja Decor') return '/sajja-decor';
+                      return `#${item.toLowerCase()}`;
+                    };
+
+                    const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor'].includes(item);
+
+                    return (
+                      <li key={item}>
+                        {isLink ? (
+                          <Link
+                            href={getHref()}
+                            onClick={() => setOpen(false)}
+                            className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
+                            style={{ fontFamily: 'var(--font-comic), cursive' }}
+                          >
+                            {item}
+                          </Link>
+                        ) : (
+                          <a
+                            href={getHref()}
+                            onClick={() => setOpen(false)}
+                            className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
+                            style={{ fontFamily: 'var(--font-comic), cursive' }}
+                          >
+                            {item}
+                          </a>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
             </SheetContent>

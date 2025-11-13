@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react';
-import { Leaf, Recycle, Users, Sparkles, TreePine, Factory, Heart, TrendingUp, Lightbulb } from 'lucide-react';
+import { Leaf, Recycle, Users, Sparkles, TreePine, Factory, Heart, TrendingUp, Lightbulb, Package, Palette, PartyPopper } from 'lucide-react';
+import Link from 'next/link';
 
 export default function SustainabilityBento() {
   const containerRef = useRef(null);
@@ -44,85 +45,135 @@ export default function SustainabilityBento() {
               className="w-16 h-16 md:w-20 md:h-20 object-contain"
             />
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-emerald-800">
-              SUSTAINABILITY
+              REVOLVE GREEN
             </h1>
           </div>
-          <span className="block text-2xl md:text-3xl lg:text-4xl text-emerald-600">with purpose</span>
+          <span className="block text-2xl md:text-3xl lg:text-4xl text-emerald-600">Transforming Waste Into Wonder</span>
+          <p className="mt-4 text-lg text-gray-700 max-w-3xl mx-auto">
+            Pioneering sustainable solutions through innovative bio-plastics, handcrafted upcycled products, and zero-waste event services
+          </p>
         </div>
 
-        {/* Bento Grid */}
+        {/* Three Verticals Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-8 text-center card-animate">
+            Our Three Verticals
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            {/* Card 1 - Bio Plastics Vertical */}
+            <Link href="/bio-plastics" className="card-animate bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-6 flex flex-col justify-between overflow-hidden relative group hover:shadow-2xl transition-all duration-300 min-h-[350px] hover:scale-[1.02]">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500 opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex items-center gap-2 mb-3">
+                  <Package className="w-8 h-8 text-lime-300" />
+                  <span className="text-lime-300 text-sm font-semibold tracking-wider">VERTICAL 1</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-3">
+                  Bio Plastics
+                </h2>
+                <div className="space-y-2 text-white/90 text-sm leading-relaxed flex-grow">
+                  <p className="font-semibold text-lime-300">Eco-Friendly Alternatives</p>
+                  <ul className="space-y-1.5 ml-4 mt-2">
+                    <li>• Biodegradable Carry Bags</li>
+                    <li>• Compostable Garbage Bags</li>
+                    <li>• Sustainable Straws</li>
+                  </ul>
+                </div>
+                <div className="mt-4 text-lime-300 font-semibold flex items-center gap-2 pt-4 border-t border-lime-300/30">
+                  Explore Bio Plastics →
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 2 - Handmade Products Vertical */}
+            <Link href="/handmade-products" className="card-animate bg-gradient-to-br from-lime-400 to-lime-500 rounded-3xl p-6 flex flex-col gap-4 overflow-hidden relative group hover:shadow-xl transition-all duration-300 min-h-[350px] hover:scale-[1.02]">
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-600 opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative z-10 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Palette className="w-8 h-8 text-emerald-900" />
+                    <span className="text-emerald-900 text-sm font-semibold tracking-wider">VERTICAL 2</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-emerald-900 leading-tight mb-3">
+                    Handmade Upcycled Products
+                  </h2>
+                  <div className="text-emerald-800 text-sm leading-relaxed">
+                    <p className="font-semibold mb-2">Crafted by Rural Women Artisans</p>
+                    <ul className="space-y-1.5 ml-4">
+                      <li>• Coasters & Pouches</li>
+                      <li>• Bags & Accessories</li>
+                      <li>• Home Decor Items</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="mt-4 text-emerald-900 font-semibold flex items-center gap-2 pt-4 border-t border-emerald-900/30">
+                  Discover Products →
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 3 - Sajja Decor Vertical */}
+            <Link href="/sajja-decor" className="card-animate bg-gradient-to-br from-purple-600 to-purple-800 rounded-3xl p-6 flex flex-col justify-between overflow-hidden relative group hover:shadow-2xl transition-all duration-300 min-h-[350px] hover:scale-[1.02]">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-pink-400 opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex items-center gap-2 mb-3">
+                  <PartyPopper className="w-8 h-8 text-pink-300" />
+                  <span className="text-pink-300 text-sm font-semibold tracking-wider">VERTICAL 3</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-3">
+                  Sajja Upcycled Decor Services
+                </h2>
+                <div className="space-y-2 text-white/90 text-sm leading-relaxed flex-grow">
+                  <p className="font-semibold text-pink-300">Creating Zero-Waste Events</p>
+                  <ul className="space-y-1.5 ml-4 mt-2">
+                    <li>• Upcycled Event Decorations</li>
+                    <li>• Rental-Based Decor</li>
+                    <li>• Office & Institutional Setup</li>
+                    <li>• Custom Installations</li>
+                  </ul>
+                </div>
+                <div className="mt-4 text-pink-300 font-semibold flex items-center gap-2 pt-4 border-t border-pink-300/30">
+                  View Sajja Services →
+                </div>
+              </div>
+            </Link>
+
+          </div>
+        </div>
+
+        {/* Bento Grid - Additional Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-auto">
 
-          {/* Card 1 - Our Story */}
-          <div className="card-animate bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-5 md:p-6 md:col-span-2 flex flex-col justify-between overflow-hidden relative group hover:shadow-2xl transition-shadow duration-300 min-h-[280px]">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500 opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-            <div className="relative z-10 flex flex-col h-full">
-              <div className="flex items-center gap-2 mb-3">
-                <Leaf className="w-6 h-6 text-lime-300" />
-                <span className="text-lime-300 text-xs font-semibold tracking-wider">OUR STORY</span>
-              </div>
-              <h2 className="text-xl md:text-3xl font-bold text-white leading-tight mb-3">
-                The Seed & The Impact Created
-              </h2>
-              <div className="space-y-1.5 text-white/90 text-xs leading-relaxed flex-grow">
-                <p className="italic">One fine day, we saw waste, & we passed by</p>
-                <p className="italic">Another fine day, we again saw it, we passed by</p>
-                <p className="font-semibold text-lime-300 mt-2">But that same day, we felt something too.</p>
-                <p className="text-sm md:text-base font-bold mt-2">& Then whenever we saw it, we picked it up.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 - Our Idea */}
-          <div className="card-animate bg-gradient-to-br from-lime-400 to-lime-500 rounded-3xl p-5 md:p-6 md:col-span-2 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-600 opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-
-            {/* Text Content */}
-            <div className="relative z-10 flex-1 flex flex-col justify-center">
-              <div className="flex items-center gap-2 mb-3">
-                <Lightbulb className="w-6 h-6 text-emerald-900" />
-                <span className="text-emerald-900 text-xs font-semibold tracking-wider">OUR IDEA</span>
-              </div>
-              <h2 className="text-xl md:text-3xl font-bold text-emerald-900 leading-tight mb-3">
-                Sowed with Purpose
-              </h2>
-              <p className="text-emerald-800 text-sm md:text-base leading-relaxed font-semibold">
-                Transforming waste into wonder through creative upcycling, empowering rural women, and building a sustainable future one piece at a time.
-              </p>
-            </div>
-          </div>
-
-          
-           <div className="card-animate md:col-span-2 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
-            {/* Image Section */}
-            <div className="relative z-10">
+          {/* Image Card 1 */}
+          <div className="card-animate md:col-span-2 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
+            <div className="relative z-10 w-full">
               <img
                 src="/peoples.png"
                 alt="People working together"
-                className="w-full h-full object-fill rounded-2xl shadow-lg"
+                className="w-full h-full object-cover rounded-2xl shadow-lg"
               />
             </div>
           </div>
 
-
-          <div className="card-animate  md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
-            {/* Image Section */}
-            <div className="relative z-10">
+          {/* Image Card 2 */}
+          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
+            <div className="relative z-10 w-full">
               <img
                 src="/item.png"
-                alt="People working together"
-                className="w-full h-full object-fill rounded-2xl shadow-lg"
+                alt="Upcycled products"
+                className="w-full h-full object-cover rounded-2xl shadow-lg"
               />
             </div>
           </div>
 
-          <div className="card-animate  md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
-            {/* Image Section */}
-            <div className="relative z-10">
+          {/* Image Card 3 */}
+          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
+            <div className="relative z-10 w-full">
               <img
                 src="/logo.png"
-                alt="People working together"
-                className="w-full h-full object-fill rounded-2xl shadow-lg"
+                alt="Revolve Green"
+                className="w-full h-full object-contain rounded-2xl shadow-lg bg-white p-4"
               />
             </div>
           </div>
@@ -195,17 +246,18 @@ export default function SustainabilityBento() {
             <p className="text-gray-600 text-xs mt-2">Saved & Upcycled</p>
           </div>
 
-          {/* Card 8 - Sajja Services */}
+          {/* Card 8 - Our Story */}
           <div className="card-animate bg-gradient-to-br from-lime-400 to-lime-500 rounded-3xl p-5 md:p-6 hover:scale-105 transition-transform duration-300 relative overflow-hidden flex flex-col">
-            {/* Text Content */}
             <div className="relative z-10 mb-4">
-              <Heart className="w-10 h-10 text-emerald-900 mb-3" />
+              <Leaf className="w-10 h-10 text-emerald-900 mb-3" />
               <h3 className="text-xl md:text-2xl font-bold text-emerald-900 mb-3">
-                Sajja Rentals
+                Our Story
               </h3>
-              <p className="text-emerald-800 text-sm font-semibold">
-                We provide decorations at events, offices & institutions on rental basis
-              </p>
+              <div className="text-emerald-800 text-sm space-y-1">
+                <p className="italic">"One fine day, we saw waste, & we passed by"</p>
+                <p className="font-semibold mt-2">But then we felt something...</p>
+                <p className="font-bold">& Then whenever we saw it, we picked it up.</p>
+              </div>
             </div>
           </div>
 

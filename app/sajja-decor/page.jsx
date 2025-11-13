@@ -2,7 +2,7 @@
 
 import { Sparkles, Leaf, Heart, Check, ChevronRight, Video, Recycle, Package, Store } from 'lucide-react';
 
-export default function Sajja() {
+export default function SajjaDecor() {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Green Theme */}
@@ -274,22 +274,7 @@ export default function Sajja() {
                   <h3 className="text-xl font-bold text-gray-900">{product.name}</h3>
                 </div>
                 <p className="text-sm text-green-600 mb-4 font-bold">{product.category}</p>
-                <p className="text-2xl font-bold text-gray-900 mb-4">{product.price}<span className="text-sm text-gray-700 font-medium">/event</span></p>
-
-                {/* Size/Options Selector */}
-                <div className="flex items-center gap-3 mb-5">
-                  {['S', 'M', 'L', 'XL'].map((size) => (
-                    <label key={size} className="flex flex-col gap-1 items-center cursor-pointer">
-                      <input type="radio" name={`size-${index}`} className="hidden peer" />
-                      <span className="w-5 h-5 border-2 border-green-500 rounded-full relative flex items-center justify-center peer-checked:after:content-[''] peer-checked:after:w-2.5 peer-checked:after:h-2.5 peer-checked:after:bg-green-600 peer-checked:border-green-600 peer-checked:after:rounded-full peer-checked:after:absolute"></span>
-                      <span className="text-gray-700 text-xs select-none font-semibold">{size}</span>
-                    </label>
-                  ))}
-                </div>
-
-                <button className="w-full px-6 py-3 bg-green-600 hover:bg-green-700 transition-all text-white font-bold rounded-xl shadow-lg hover:shadow-xl">
-                  RENT NOW
-                </button>
+                <p className="text-2xl font-bold text-gray-900">{product.price}<span className="text-sm text-gray-700 font-medium">/event</span></p>
               </div>
             </div>
           ))}
