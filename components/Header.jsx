@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   Sheet,
   SheetContent,
@@ -13,20 +15,31 @@ import {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const menuItems = ['Home', 'About', 'Services', 'Contact'];
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+  const menuItems = ['Home', 'Sajja', 'Contact'];
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
+      // Only enable scroll effect on home page
+      if (isHomePage) {
+        if (window.scrollY > 50) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
       } else {
-        setScrolled(false);
+        // On other pages, always keep the header in "scrolled" state (solid background)
+        setScrolled(true);
       }
     };
 
+    // Initial check
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHomePage]);
 
   return (
     <header
@@ -55,17 +68,43 @@ export default function Header() {
             <ul className="flex items-center space-x-6 md:space-x-8">
               {menuItems.map((item) => (
                 <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className={`text-sm md:text-base font-bold transition-colors duration-300 ${
-                      scrolled
-                        ? 'text-green-800 hover:text-green-600'
-                        : 'text-white hover:text-green-200'
-                    }`}
-                    style={{ fontFamily: 'var(--font-comic), cursive' }}
-                  >
-                    {item}
-                  </a>
+                  {item === 'Sajja' ? (
+                    <Link
+                      href="/sajja"
+                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${
+                        scrolled
+                          ? 'text-green-800 hover:text-green-600'
+                          : 'text-white hover:text-green-200'
+                      }`}
+                      style={{ fontFamily: 'var(--font-comic), cursive' }}
+                    >
+                      {item}
+                    </Link>
+                  ) : item === 'Home' ? (
+                    <Link
+                      href="/"
+                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${
+                        scrolled
+                          ? 'text-green-800 hover:text-green-600'
+                          : 'text-white hover:text-green-200'
+                      }`}
+                      style={{ fontFamily: 'var(--font-comic), cursive' }}
+                    >
+                      {item}
+                    </Link>
+                  ) : (
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${
+                        scrolled
+                          ? 'text-green-800 hover:text-green-600'
+                          : 'text-white hover:text-green-200'
+                      }`}
+                      style={{ fontFamily: 'var(--font-comic), cursive' }}
+                    >
+                      {item}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -94,14 +133,34 @@ export default function Header() {
                 <ul className="flex flex-col space-y-6">
                   {menuItems.map((item) => (
                     <li key={item}>
-                      <a
-                        href={`#${item.toLowerCase()}`}
-                        onClick={() => setOpen(false)}
-                        className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
-                        style={{ fontFamily: 'var(--font-comic), cursive' }}
-                      >
-                        {item}
-                      </a>
+                      {item === 'Sajja' ? (
+                        <Link
+                          href="/sajja"
+                          onClick={() => setOpen(false)}
+                          className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
+                          style={{ fontFamily: 'var(--font-comic), cursive' }}
+                        >
+                          {item}
+                        </Link>
+                      ) : item === 'Home' ? (
+                        <Link
+                          href="/"
+                          onClick={() => setOpen(false)}
+                          className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
+                          style={{ fontFamily: 'var(--font-comic), cursive' }}
+                        >
+                          {item}
+                        </Link>
+                      ) : (
+                        <a
+                          href={`#${item.toLowerCase()}`}
+                          onClick={() => setOpen(false)}
+                          className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
+                          style={{ fontFamily: 'var(--font-comic), cursive' }}
+                        >
+                          {item}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>
