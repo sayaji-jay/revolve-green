@@ -17,7 +17,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
-  const menuItems = ['Home', 'Sajja', 'Contact'];
+  const menuItems = ['Home', 'Sajja', 'Products', 'Contact'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,6 +71,18 @@ export default function Header() {
                   {item === 'Sajja' ? (
                     <Link
                       href="/sajja"
+                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${
+                        scrolled
+                          ? 'text-green-800 hover:text-green-600'
+                          : 'text-white hover:text-green-200'
+                      }`}
+                      style={{ fontFamily: 'var(--font-comic), cursive' }}
+                    >
+                      {item}
+                    </Link>
+                  ) : item === 'Products' ? (
+                    <Link
+                      href="/products"
                       className={`text-sm md:text-base font-bold transition-colors duration-300 ${
                         scrolled
                           ? 'text-green-800 hover:text-green-600'
@@ -136,6 +148,15 @@ export default function Header() {
                       {item === 'Sajja' ? (
                         <Link
                           href="/sajja"
+                          onClick={() => setOpen(false)}
+                          className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
+                          style={{ fontFamily: 'var(--font-comic), cursive' }}
+                        >
+                          {item}
+                        </Link>
+                      ) : item === 'Products' ? (
+                        <Link
+                          href="/products"
                           onClick={() => setOpen(false)}
                           className="text-lg font-bold text-green-800 hover:text-green-600 transition-colors block"
                           style={{ fontFamily: 'var(--font-comic), cursive' }}
