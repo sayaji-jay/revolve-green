@@ -348,9 +348,34 @@ export default function SustainabilityBento() {
 
         {/* Footer Message */}
         <div className="mt-8 md:mt-12 text-center card-animate">
-          <p className="text-emerald-700 text-sm md:text-base italic max-w-3xl mx-auto">
+          <p className="text-emerald-700 text-sm md:text-base italic max-w-3xl mx-auto mb-6">
             This World Environment Day — we urge you to take that step in whatever way possible.
           </p>
+
+          {/* Download Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
+            <a
+              href="/carrybag cipet report.pdf"
+              download
+              className="group relative bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-3 w-full sm:w-auto justify-center"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span>CIPET Carry Bag Report</span>
+            </a>
+
+            <a
+              href="/CPCB Certificate_Revolve Green Pvt. Ltd..pdf"
+              download
+              className="group relative bg-gradient-to-r from-lime-500 to-lime-600 text-emerald-900 px-6 py-3 rounded-xl font-semibold text-sm hover:from-lime-600 hover:to-lime-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-3 w-full sm:w-auto justify-center"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span>CPCB Certificate</span>
+            </a>
+          </div>
         </div>
 
       </div>
