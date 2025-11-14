@@ -1,0 +1,31 @@
+{
+  "category": "Coconut Products",
+  "description": "Natural products made from coconut shells and fibers",
+  "products": [
+    {
+      "id": "coconut-001",
+      "name": "Candle",
+      "price": "₹100",
+      "material": "Coconut Shell",
+      "image": "/item.png"
+    },
+    {
+      "id": "coconut-002",
+      "name": "Cup",
+      "height": "3\"",
+      "diameter": "3.5\"",
+      "price": "₹100",
+      "material": "Coconut Shell",
+      "image": "/item.png"
+    },
+    {
+      "id": "coconut-003",
+      "name": "Planter",
+      "height": "3\"",
+      "diameter": "4\"",
+      "price": "₹80",
+      "material": "Coconut Shell",
+      "image": "/item.png"
+    }
+  ]
+}

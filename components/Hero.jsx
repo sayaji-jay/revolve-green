@@ -272,18 +272,30 @@ export default function Hero() {
 
               {/* Card Back */}
               <div
-                className="card-back absolute top-0 left-0 w-full h-full bg-black rounded-[20px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-none md:rounded-br-none flex flex-col items-center justify-center text-center p-8 md:p-10"
+                className="card-back absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald-900 via-emerald-800 to-green-900 rounded-[20px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-none md:rounded-br-none flex flex-col items-center justify-center text-center p-6 md:p-8 relative overflow-hidden"
                 style={{
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
                   transform: 'rotateY(180deg)'
                 }}
               >
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Step - 1</h2>
-                <Sprout className="w-20 h-20 md:w-24 md:h-24 text-green-400 mb-6" />
-                <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed max-w-md">
-                  The beginning of our journey—planting the seed of change through awareness and intention.
-                </p>
+                {/* Background decorative element */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-green-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-400/10 rounded-full blur-2xl"></div>
+
+                {/* Step label in corner */}
+                <div className="absolute top-4 left-4 text-green-300/60 font-bold text-xs tracking-widest">
+                  STEP-1
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                  <Sprout className="w-16 h-16 md:w-20 md:h-20 text-green-300 mb-6" />
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Sowed</h3>
+                  <p className="text-sm md:text-base text-green-50/90 leading-relaxed max-w-[280px]">
+                    The beginning of our journey—planting the seed of change through awareness and intention.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -328,18 +340,31 @@ export default function Hero() {
 
               {/* Card Back */}
               <div
-                className="card-back absolute top-0 left-0 w-full h-full bg-black rounded-[20px] flex flex-col items-center justify-center text-center p-8 md:p-10"
+                className="card-back absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lime-600 via-lime-500 to-green-500 rounded-[20px] flex flex-col items-center justify-center text-center p-6 md:p-8 overflow-hidden"
                 style={{
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
-                  transform: 'rotateY(180deg)'
+                  transform: 'rotateY(180deg)',
+                  position: 'relative'
                 }}
               >
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Step - 2</h2>
-                <Leaf className="w-20 h-20 md:w-24 md:h-24 text-blue-400 mb-6" />
-                <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed max-w-md">
-                  Taking action—nurturing growth through consistent effort and dedication to our mission.
-                </p>
+                {/* Background decorative element */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-700/20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-yellow-400/20 rounded-full blur-2xl"></div>
+
+                {/* Step label in corner */}
+                <div className="absolute top-4 left-4 text-emerald-900/60 font-bold text-xs tracking-widest">
+                  STEP-2
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                  <TreePine className="w-16 h-16 md:w-20 md:h-20 text-emerald-900 mb-6" />
+                  <h3 className="text-2xl md:text-3xl font-bold text-emerald-900 mb-4">Growing Tree</h3>
+                  <p className="text-sm md:text-base text-emerald-900/90 leading-relaxed max-w-[280px]">
+                    Taking action—nurturing growth through consistent effort and dedication to our mission.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -383,18 +408,31 @@ export default function Hero() {
 
               {/* Card Back */}
               <div
-                className="card-back absolute top-0 left-0 w-full h-full bg-black rounded-[20px] md:rounded-tr-[20px] md:rounded-br-[20px] md:rounded-tl-none md:rounded-bl-none flex flex-col items-center justify-center text-center p-8 md:p-10"
+                className="card-back absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-700 via-green-600 to-emerald-700 rounded-[20px] md:rounded-tr-[20px] md:rounded-br-[20px] md:rounded-tl-none md:rounded-bl-none flex flex-col items-center justify-center text-center p-6 md:p-8 overflow-hidden"
                 style={{
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
-                  transform: 'rotateY(180deg)'
+                  transform: 'rotateY(180deg)',
+                  position: 'relative'
                 }}
               >
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Step - 3</h2>
-                <TreePine className="w-20 h-20 md:w-24 md:h-24 text-purple-400 mb-6" />
-                <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed max-w-md">
-                  Creating change—transforming waste into wonder and building a sustainable future together.
-                </p>
+                {/* Background decorative element */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-400/10 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-lime-300/10 rounded-full blur-2xl"></div>
+
+                {/* Step label in corner */}
+                <div className="absolute top-4 left-4 text-green-200/60 font-bold text-xs tracking-widest">
+                  STEP-3
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                  <Leaf className="w-16 h-16 md:w-20 md:h-20 text-green-200 mb-6" />
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">The Impact Created</h3>
+                  <p className="text-sm md:text-base text-green-50/90 leading-relaxed max-w-[280px]">
+                    Creating change—transforming waste into wonder and building a sustainable future together.
+                  </p>
+                </div>
               </div>
             </div>
 

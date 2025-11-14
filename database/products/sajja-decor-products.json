@@ -1,0 +1,60 @@
+{
+  "category": "Sajja Decor",
+  "description": "Sustainable decor solutions for events, weddings, and special occasions",
+  "products": [
+    {
+      "id": "decor-001",
+      "name": "Fabric Wall Hangings",
+      "category": "Wall Decor",
+      "price": "₹2,500",
+      "material": "Upcycled Fabric",
+      "description": "Beautiful wall hangings made from sustainable fabrics",
+      "image": "/item.png"
+    },
+    {
+      "id": "decor-002",
+      "name": "Upcycled Centerpieces",
+      "category": "Table Decor",
+      "price": "₹1,800",
+      "material": "Upcycled Materials",
+      "description": "Elegant centerpieces for tables and events",
+      "image": "/item.png"
+    },
+    {
+      "id": "decor-003",
+      "name": "Eco Garlands",
+      "category": "Event Decor",
+      "price": "₹1,200",
+      "material": "Natural & Recycled Materials",
+      "description": "Eco-friendly garlands for decorating events",
+      "image": "/item.png"
+    },
+    {
+      "id": "decor-004",
+      "name": "Sustainable Backdrops",
+      "category": "Photo Walls",
+      "price": "₹5,000",
+      "material": "Recycled & Natural Materials",
+      "description": "Stunning backdrops for photography and events",
+      "image": "/item.png"
+    },
+    {
+      "id": "decor-005",
+      "name": "Reclaimed Wood Signs",
+      "category": "Signage",
+      "price": "₹1,500",
+      "material": "Reclaimed Wood",
+      "description": "Custom signage made from reclaimed wood",
+      "image": "/item.png"
+    },
+    {
+      "id": "decor-006",
+      "name": "Bottle Art Installations",
+      "category": "Installations",
+      "price": "₹3,500",
+      "material": "Upcycled Bottles",
+      "description": "Artistic installations made from recycled bottles",
+      "image": "/item.png"
+    }
+  ]
+}

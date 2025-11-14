@@ -1,0 +1,24 @@
+{
+  "category": "Special Products",
+  "description": "Unique items made from upcycled materials and waste",
+  "products": [
+    {
+      "id": "special-001",
+      "name": "E-waste Frame",
+      "size": "5\" x 7\"",
+      "price": "₹300",
+      "material": "E-waste & Reclaimed Wood",
+      "description": "Made from discarded electronic waste and wood",
+      "image": "/item.png"
+    },
+    {
+      "id": "special-002",
+      "name": "Magazine Coaster",
+      "diameter": "4\"",
+      "price": "₹140",
+      "material": "Upcycled Magazines",
+      "description": "Handcrafted from upcycled magazines",
+      "image": "/item.png"
+    }
+  ]
+}

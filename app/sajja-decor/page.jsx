@@ -1,6 +1,8 @@
 'use client';
 
 import { Sparkles, Leaf, Heart, Check, ChevronRight, Video, Recycle, Package, Store } from 'lucide-react';
+import Image from 'next/image';
+import sajjaDecorData from '@/database/products/sajja-decor-products.json';
 
 export default function SajjaDecor() {
   return (
@@ -248,21 +250,23 @@ export default function SajjaDecor() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Sample Product Cards */}
-          {[
-            { name: 'Fabric Wall Hangings', category: 'Wall Decor', price: '₹2,500' },
-            { name: 'Upcycled Centerpieces', category: 'Table Decor', price: '₹1,800' },
-            { name: 'Eco Garlands', category: 'Event Decor', price: '₹1,200' },
-            { name: 'Sustainable Backdrops', category: 'Photo Walls', price: '₹5,000' },
-            { name: 'Reclaimed Wood Signs', category: 'Signage', price: '₹1,500' },
-            { name: 'Bottle Art Installations', category: 'Installations', price: '₹3,500' }
-          ].map((product, index) => (
-            <div key={index} className="flex flex-col bg-white/95 backdrop-blur-sm border-2 border-green-300 shadow-xl hover:shadow-2xl hover:shadow-green-500/30 transition-all rounded-2xl overflow-hidden">
+          {/* Product Cards from JSON */}
+          {sajjaDecorData.products.map((product) => (
+            <div key={product.id} className="flex flex-col bg-white/95 backdrop-blur-sm border-2 border-green-300 shadow-xl hover:shadow-2xl hover:shadow-green-500/30 transition-all rounded-2xl overflow-hidden">
               {/* Product Image */}
               <div className="w-full h-80 bg-gradient-to-br from-green-100 to-emerald-100 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Sparkles className="w-20 h-20 text-green-500 opacity-40" strokeWidth={2} />
-                </div>
+                {product.image ? (
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Sparkles className="w-20 h-20 text-green-500 opacity-40" strokeWidth={2} />
+                  </div>
+                )}
                 <span className="absolute top-4 right-4 px-4 py-2 bg-green-600 text-white rounded-full text-sm font-bold shadow-lg">
                   RENTAL
                 </span>
@@ -274,6 +278,9 @@ export default function SajjaDecor() {
                   <h3 className="text-xl font-bold text-gray-900">{product.name}</h3>
                 </div>
                 <p className="text-sm text-green-600 mb-4 font-bold">{product.category}</p>
+                {product.description && (
+                  <p className="text-sm text-gray-700 mb-3">{product.description}</p>
+                )}
                 <p className="text-2xl font-bold text-gray-900">{product.price}<span className="text-sm text-gray-700 font-medium">/event</span></p>
               </div>
             </div>

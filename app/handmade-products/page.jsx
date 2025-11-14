@@ -2,6 +2,11 @@
 
 import { ShoppingBag, Leaf, Package, Recycle, Heart, Check, ChevronRight, Sparkles, ChevronLeft } from 'lucide-react';
 import { useRef } from 'react';
+import Image from 'next/image';
+import mlpData from '@/database/products/mlp-products.json';
+import clothData from '@/database/products/cloth-products.json';
+import coconutData from '@/database/products/coconut-products.json';
+import specialData from '@/database/products/special-products.json';
 
 // Carousel Component
 function ProductCarousel({ products, categoryLabel, Icon }) {
@@ -42,15 +47,24 @@ function ProductCarousel({ products, categoryLabel, Icon }) {
         className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        {products.map((product, index) => (
+        {products.map((product) => (
           <div
-            key={index}
+            key={product.id}
             className="flex-shrink-0 w-64 flex flex-col bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 shadow-lg hover:shadow-xl transition-all rounded-2xl overflow-hidden"
           >
             <div className="w-full h-48 bg-gradient-to-br from-green-100 to-emerald-100 relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Icon className="w-16 h-16 text-green-500 opacity-40" strokeWidth={2} />
-              </div>
+              {product.image ? (
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Icon className="w-16 h-16 text-green-500 opacity-40" strokeWidth={2} />
+                </div>
+              )}
               <span className="absolute top-3 right-3 px-3 py-1 bg-green-600 text-white rounded-full text-xs font-bold shadow-lg">
                 {categoryLabel}
               </span>
@@ -81,35 +95,11 @@ function ProductCarousel({ products, categoryLabel, Icon }) {
 }
 
 export default function HandmadeProductsPage() {
-  // Product data organized by category
-  const mlpProducts = [
-    { name: 'Coaster', diameter: '4"', price: '₹175' },
-    { name: 'Mat', diameter: '11.5"', price: '₹500' },
-    { name: 'Planter/Basket', customizable: true, price: 'Custom' },
-    { name: 'Tray', diameter: '11.5"', height: '1.5"', price: '₹350' },
-    { name: 'Book Holder', length: '8"', height: '4"', price: '₹900' },
-    { name: 'Table', material: 'Teakwood', diameter: '14"', height: '16"', price: '₹3500' }
-  ];
-
-  const clothProducts = [
-    { name: 'Mat', diameter: '11.5"', price: '₹500' },
-    { name: 'Baskets', customizable: true, price: 'Custom' },
-    { name: 'Pen Stand', diameter: '3.5"', height: '4"', price: '₹300' },
-    { name: 'Handmade Diary', dimensions: '6" x 9"', price: '₹350' },
-    { name: 'Cloth Bag', width: '14"', height: '15"', price: '₹30' },
-    { name: 'Potli Bag', width: '9.5"', height: '12"', price: '₹20' }
-  ];
-
-  const coconutProducts = [
-    { name: 'Candle', price: '₹100' },
-    { name: 'Cup', height: '3"', diameter: '3.5"', price: '₹100' },
-    { name: 'Planter', height: '3"', diameter: '4"', price: '₹80' }
-  ];
-
-  const specialProducts = [
-    { name: 'E-waste Frame', size: '5" x 7"', price: '₹300', description: 'Made from discarded electronic waste and wood' },
-    { name: 'Magazine Coaster', diameter: '4"', price: '₹140', description: 'Handcrafted from upcycled magazines' }
-  ];
+  // Product data from JSON files
+  const mlpProducts = mlpData.products;
+  const clothProducts = clothData.products;
+  const coconutProducts = coconutData.products;
+  const specialProducts = specialData.products;
 
   return (
     <div className="min-h-screen">

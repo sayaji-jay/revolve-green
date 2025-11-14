@@ -1,38 +1,10 @@
 'use client';
 
-import { Mail, Phone, MapPin, Send, Clock, Globe, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { Mail, Phone, MapPin, Send, Clock, Globe, ChevronRight, CheckCircle } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Form submission logic here
-    console.log('Form submitted:', formData);
-    alert('Thank you for contacting us! We will get back to you soon.');
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
-  };
+  const [state, handleSubmit] = useForm("xdkyawze");
 
   return (
     <div className="min-h-screen">
@@ -110,105 +82,157 @@ export default function ContactPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-6">
               Send us a Message
             </h2>
-            <p className="text-gray-800 mb-8 font-medium">
-              Fill out the form below and we'll get back to you as soon as possible.
-            </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
-              <div>
-                <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium"
-                  placeholder="Enter your full name"
-                />
+            {state.succeeded ? (
+              <div className="flex flex-col items-center justify-center py-12 space-y-6">
+                <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-12 h-12 text-green-600" strokeWidth={2.5} />
+                </div>
+                <div className="text-center space-y-2">
+                  <h3 className="text-2xl font-bold text-green-800">Thank You!</h3>
+                  <p className="text-gray-800 font-medium text-lg">
+                    Your message has been sent successfully.
+                  </p>
+                  <p className="text-gray-700">
+                    We'll get back to you as soon as possible.
+                  </p>
+                </div>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg hover:shadow-xl"
+                >
+                  Send Another Message
+                </button>
               </div>
+            ) : (
+              <>
+                <p className="text-gray-800 mb-8 font-medium">
+                  Fill out the form below and we'll get back to you as soon as possible.
+                </p>
 
-              {/* Email Field */}
-              <div>
-                <label htmlFor="email" className="block text-sm font-bold text-gray-900 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium"
-                  placeholder="your.email@example.com"
-                />
-              </div>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name Field */}
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      disabled={state.submitting}
+                      className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder="Enter your full name"
+                    />
+                    <ValidationError
+                      prefix="Name"
+                      field="name"
+                      errors={state.errors}
+                      className="text-red-600 text-sm mt-1"
+                    />
+                  </div>
 
-              {/* Phone Field */}
-              <div>
-                <label htmlFor="phone" className="block text-sm font-bold text-gray-900 mb-2">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium"
-                  placeholder="+91 XXXXX XXXXX"
-                />
-              </div>
+                  {/* Email Field */}
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-bold text-gray-900 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      disabled={state.submitting}
+                      className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder="your.email@example.com"
+                    />
+                    <ValidationError
+                      prefix="Email"
+                      field="email"
+                      errors={state.errors}
+                      className="text-red-600 text-sm mt-1"
+                    />
+                  </div>
 
-              {/* Subject Field */}
-              <div>
-                <label htmlFor="subject" className="block text-sm font-bold text-gray-900 mb-2">
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium"
-                  placeholder="How can we help you?"
-                />
-              </div>
+                  {/* Phone Field */}
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-bold text-gray-900 mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      disabled={state.submitting}
+                      className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder="+91 XXXXX XXXXX"
+                    />
+                    <ValidationError
+                      prefix="Phone"
+                      field="phone"
+                      errors={state.errors}
+                      className="text-red-600 text-sm mt-1"
+                    />
+                  </div>
 
-              {/* Message Field */}
-              <div>
-                <label htmlFor="message" className="block text-sm font-bold text-gray-900 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium resize-none"
-                  placeholder="Tell us more about your inquiry..."
-                ></textarea>
-              </div>
+                  {/* Subject Field */}
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-bold text-gray-900 mb-2">
+                      Subject *
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      required
+                      disabled={state.submitting}
+                      className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder="How can we help you?"
+                    />
+                    <ValidationError
+                      prefix="Subject"
+                      field="subject"
+                      errors={state.errors}
+                      className="text-red-600 text-sm mt-1"
+                    />
+                  </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-              >
-                <Send className="w-5 h-5" />
-                Send Message
-              </button>
-            </form>
+                  {/* Message Field */}
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-bold text-gray-900 mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      disabled={state.submitting}
+                      rows="5"
+                      className="w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:outline-none focus:border-green-500 transition-all bg-white text-gray-900 font-medium resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder="Tell us more about your inquiry..."
+                    ></textarea>
+                    <ValidationError
+                      prefix="Message"
+                      field="message"
+                      errors={state.errors}
+                      className="text-red-600 text-sm mt-1"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={state.submitting}
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <Send className="w-5 h-5" />
+                    {state.submitting ? 'Sending...' : 'Send Message'}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
 
           {/* Right Side - Additional Info */}

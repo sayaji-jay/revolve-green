@@ -52,7 +52,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center gap-3">
+          <Link href="/" className="flex-shrink-0 flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity duration-300">
             <img
               src="/logo.png"
               alt="Revolve Green Logo"
@@ -66,7 +66,7 @@ export default function Header() {
             >
               Revolve Green
             </h1>
-          </div>
+          </Link>
 
           {/* Desktop Menu Items */}
           <nav className="hidden md:block">

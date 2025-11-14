@@ -1,0 +1,58 @@
+{
+  "category": "MLP Products",
+  "description": "Multi-Layer Paper products - eco-friendly items made from recycled paper",
+  "products": [
+    {
+      "id": "mlp-001",
+      "name": "Coaster",
+      "diameter": "4\"",
+      "price": "₹175",
+      "material": "Multi-Layer Paper",
+      "image": "/item.png"
+    },
+    {
+      "id": "mlp-002",
+      "name": "Mat",
+      "diameter": "11.5\"",
+      "price": "₹500",
+      "material": "Multi-Layer Paper",
+      "image": "/item.png"
+    },
+    {
+      "id": "mlp-003",
+      "name": "Planter/Basket",
+      "customizable": true,
+      "price": "Custom",
+      "material": "Multi-Layer Paper",
+      "description": "Customizable planters and baskets",
+      "image": "/item.png"
+    },
+    {
+      "id": "mlp-004",
+      "name": "Tray",
+      "diameter": "11.5\"",
+      "height": "1.5\"",
+      "price": "₹350",
+      "material": "Multi-Layer Paper",
+      "image": "/item.png"
+    },
+    {
+      "id": "mlp-005",
+      "name": "Book Holder",
+      "length": "8\"",
+      "height": "4\"",
+      "price": "₹900",
+      "material": "Multi-Layer Paper",
+      "image": "/item.png"
+    },
+    {
+      "id": "mlp-006",
+      "name": "Table",
+      "material": "Multi-Layer Paper with Teakwood",
+      "diameter": "14\"",
+      "height": "16\"",
+      "price": "₹3500",
+      "image": "/item.png"
+    }
+  ]
+}

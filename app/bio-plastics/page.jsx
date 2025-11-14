@@ -32,7 +32,7 @@ export default function BioPlasticsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-emerald-50 to-white">
+    <div className="min-h-screen py-24 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto" ref={containerRef}>
 
         {/* Hero Section */}

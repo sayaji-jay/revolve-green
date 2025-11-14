@@ -1,0 +1,58 @@
+{
+  "category": "Cloth Products",
+  "description": "Sustainable products made from upcycled and eco-friendly fabrics",
+  "products": [
+    {
+      "id": "cloth-001",
+      "name": "Mat",
+      "diameter": "11.5\"",
+      "price": "₹500",
+      "material": "Upcycled Cloth",
+      "image": "/item.png"
+    },
+    {
+      "id": "cloth-002",
+      "name": "Baskets",
+      "customizable": true,
+      "price": "Custom",
+      "material": "Upcycled Cloth",
+      "description": "Customizable cloth baskets",
+      "image": "/item.png"
+    },
+    {
+      "id": "cloth-003",
+      "name": "Pen Stand",
+      "diameter": "3.5\"",
+      "height": "4\"",
+      "price": "₹300",
+      "material": "Upcycled Cloth",
+      "image": "/item.png"
+    },
+    {
+      "id": "cloth-004",
+      "name": "Handmade Diary",
+      "dimensions": "6\" x 9\"",
+      "price": "₹350",
+      "material": "Handmade Paper & Cloth",
+      "image": "/item.png"
+    },
+    {
+      "id": "cloth-005",
+      "name": "Cloth Bag",
+      "width": "14\"",
+      "height": "15\"",
+      "price": "₹30",
+      "material": "Eco-friendly Cloth",
+      "image": "/item.png"
+    },
+    {
+      "id": "cloth-006",
+      "name": "Potli Bag",
+      "width": "9.5\"",
+      "height": "12\"",
+      "price": "₹20",
+      "material": "Eco-friendly Cloth",
+      "image": "/item.png"
+    }
+  ]
+}

@@ -301,32 +301,44 @@ export default function SustainabilityBento() {
           </div>
 
           {/* Card 10 - Team Member 1 - Aayushee Shah */}
-          <div className="card-animate bg-gradient-to-br from-white to-emerald-50 rounded-3xl p-5 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div className="card-animate bg-gradient-to-br from-white to-emerald-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full mb-3 flex items-center justify-center shadow-lg">
-                <span className="text-xl font-bold text-white">AS</span>
+              <div className="w-full h-48 md:h-56 overflow-hidden">
+                <img
+                  src="/Aayushee Shah.png"
+                  alt="Aayushee Shah - Co-Founder"
+                  className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-300"
+                />
               </div>
-              <h4 className="text-lg font-bold text-emerald-800 mb-2">Aayushee Shah</h4>
-              <div className="space-y-1">
-                <p className="text-xs text-gray-600 font-medium">Co-Founder & Product Designer</p>
-                <div className="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">
-                  Revolve Green
+              <div className="p-5">
+                <h4 className="text-lg font-bold text-emerald-800 mb-2">Aayushee Shah</h4>
+                <div className="space-y-1">
+                  <p className="text-xs text-gray-600 font-medium">Co-Founder & Product Designer</p>
+                  <div className="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">
+                    Revolve Green
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Card 11 - Team Member 2 - Dhvani Sheth */}
-          <div className="card-animate bg-gradient-to-br from-white to-lime-50 rounded-3xl p-5 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          {/* Card 11 - Team Member 2 - Dhvani Damani */}
+          <div className="card-animate bg-gradient-to-br from-white to-lime-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-lime-500 to-lime-600 rounded-full mb-3 flex items-center justify-center shadow-lg">
-                <span className="text-xl font-bold text-emerald-900">DS</span>
+              <div className="w-full h-48 md:h-56 overflow-hidden">
+                <img
+                  src="/Dhvani Damani.png"
+                  alt="Dhvani Damani - Founder"
+                  className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-300"
+                />
               </div>
-              <h4 className="text-lg font-bold text-emerald-800 mb-2">Dhvani Sheth</h4>
-              <div className="space-y-1">
-                <p className="text-xs text-gray-600 font-medium">Founder at Upyukt</p>
-                <div className="inline-block bg-lime-200 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold">
-                  Partner at Sajja
+              <div className="p-5">
+                <h4 className="text-lg font-bold text-emerald-800 mb-2">Dhvani Damani</h4>
+                <div className="space-y-1">
+                  <p className="text-xs text-gray-600 font-medium">Founder at Upyukt</p>
+                  <div className="inline-block bg-lime-200 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Partner at Sajja
+                  </div>
                 </div>
               </div>
             </div>
