@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Package, Leaf, Recycle, TreePine, CheckCircle2, Sprout } from 'lucide-react';
-import Link from 'next/link';
 
 export default function BioPlasticsPage() {
   const containerRef = useRef(null);
