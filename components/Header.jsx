@@ -81,20 +81,32 @@ export default function Header() {
                   return `#${item.toLowerCase()}`;
                 };
 
+                const isActive = pathname === getHref();
+
                 return (
                   <li key={item}>
                     <Link
                       href={getHref()}
                       className={`text-sm md:text-base font-bold transition-all duration-300 relative group ${
-                        scrolled
+                        isActive
+                          ? scrolled
+                            ? 'text-green-600'
+                            : 'text-green-300'
+                          : scrolled
                           ? 'text-green-800 hover:text-green-600'
                           : 'text-white hover:text-green-200'
                       }`}
                       style={{ fontFamily: 'var(--font-comic), cursive' }}
                     >
                       {item}
-                      <span className={`absolute left-0 -bottom-1 h-[3px] w-0 group-hover:w-full transition-all duration-300 ${
-                        scrolled ? 'bg-green-600' : 'bg-white'
+                      <span className={`absolute left-0 -bottom-1 h-[3px] transition-all duration-300 ${
+                        isActive
+                          ? scrolled
+                            ? 'bg-green-600 w-full'
+                            : 'bg-green-300 w-full'
+                          : scrolled
+                          ? 'bg-green-600 w-0 group-hover:w-full'
+                          : 'bg-white w-0 group-hover:w-full'
                       }`}></span>
                     </Link>
                   </li>
@@ -116,14 +128,19 @@ export default function Header() {
                 <Menu className="h-6 w-6" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-white">
-              <SheetHeader>
-                <SheetTitle className="text-green-800 font-bold text-xl" style={{ fontFamily: 'var(--font-comic), cursive' }}>
+            <SheetContent side="right" className="w-[320px] sm:w-[400px] bg-gradient-to-br from-white to-green-50">
+              <SheetHeader className="border-b border-green-200 pb-4">
+                <SheetTitle className="text-green-800 font-bold text-2xl flex items-center gap-2" style={{ fontFamily: 'var(--font-comic), cursive' }}>
+                  <img
+                    src="/logo.png"
+                    alt="Logo"
+                    className="w-8 h-8 object-contain animate-spin-slow"
+                  />
                   Menu
                 </SheetTitle>
               </SheetHeader>
               <nav className="mt-8">
-                <ul className="flex flex-col space-y-6">
+                <ul className="flex flex-col space-y-2">
                   {menuItems.map((item) => {
                     const getHref = () => {
                       if (item === 'Home') return '/';
@@ -134,8 +151,8 @@ export default function Header() {
                       return `#${item.toLowerCase()}`;
                     };
 
+                    const isActive = pathname === getHref();
                     const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor', 'Contact'].includes(item);
-                    const isImportant = ['Bio Plastics', 'Handmade Products', 'Sajja Decor'].includes(item);
 
                     return (
                       <li key={item}>
@@ -143,25 +160,30 @@ export default function Header() {
                           <Link
                             href={getHref()}
                             onClick={() => setOpen(false)}
-                            className="text-lg font-bold text-green-800 hover:text-green-600 transition-all block relative group pb-1"
+                            className={`text-lg font-bold transition-all block relative group py-3 px-4 rounded-lg ${
+                              isActive
+                                ? 'bg-green-600 text-white shadow-lg'
+                                : 'text-green-800 hover:bg-green-100 hover:text-green-700'
+                            }`}
                             style={{ fontFamily: 'var(--font-comic), cursive' }}
                           >
-                            {item}
-                            {isImportant && (
-                              <span className="absolute left-0 bottom-0 h-[3px] w-0 group-hover:w-full transition-all duration-300 bg-green-600"></span>
-                            )}
+                            <span className="flex items-center justify-between">
+                              {item}
+                              {isActive && (
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                              )}
+                            </span>
                           </Link>
                         ) : (
                           <a
                             href={getHref()}
                             onClick={() => setOpen(false)}
-                            className="text-lg font-bold text-green-800 hover:text-green-600 transition-all block relative group pb-1"
+                            className="text-lg font-bold text-green-800 hover:bg-green-100 hover:text-green-700 transition-all block relative group py-3 px-4 rounded-lg"
                             style={{ fontFamily: 'var(--font-comic), cursive' }}
                           >
                             {item}
-                            {isImportant && (
-                              <span className="absolute left-0 bottom-0 h-[3px] w-0 group-hover:w-full transition-all duration-300 bg-green-600"></span>
-                            )}
                           </a>
                         )}
                       </li>

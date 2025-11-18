@@ -21,9 +21,13 @@ export default function Hero() {
 
     // // For mobile screens (max-width: 999px) - No animations, blank styles
     mm.add("(max-width: 999px)", () => {
-      // Reset all styles to blank/default
+      // Reset all styles to blank/default and hide cards completely
       gsap.set("#card-1, #card-2, #card-3", { clearProps: "all" });
-      gsap.set(".card-container", { clearProps: "all" });
+      gsap.set(".card-container", { display: "none" });
+      gsap.set(".video-tagline", { opacity: 1 });
+
+      // Remove sticky behavior on mobile
+      gsap.set(".sticky-section", { clearProps: "all" });
 
       return () => {
         // Cleanup for mobile
@@ -31,7 +35,7 @@ export default function Hero() {
     });
 
     // For desktop screens (min-width: 1000px) - Apply animations
-    mm.add("(min-width: 500px)", () => {
+    mm.add("(min-width: 1000px)", () => {
 
       // Set initial state for cards - below screen
       gsap.set(".card-container", { y: "100vh", opacity: 0 });
@@ -187,8 +191,8 @@ export default function Hero() {
           </div>
 
           {/* Hero Content - Initially visible */}
-          <div className="video-tagline absolute inset-0 flex flex-col max-md:gap-20 md:flex-row pb-20 items-center justify-between px-4 md:px-16 lg:px-24 xl:px-32 z-20 transition-opacity duration-700">
-            <div className="flex flex-col items-center md:items-start">
+          <div className="video-tagline absolute inset-0 flex flex-col max-md:gap-8 md:flex-row pb-20 items-center md:justify-between justify-center px-4 md:px-16 lg:px-24 xl:px-32 z-20 transition-opacity duration-700">
+            <div className="flex flex-col items-center md:items-start max-md:max-w-2xl">
               <div className="flex flex-wrap items-center justify-center p-1.5 rounded-full border border-emerald-600/50 bg-emerald-900/30 backdrop-blur-sm text-white text-xs">
                 <div className="flex items-center">
                   <Leaf className="w-5 h-5 text-green-400 mr-1" />
@@ -197,17 +201,17 @@ export default function Hero() {
                 </div>
                 <p className="-translate-x-1 font-semibold">Join the sustainable revolution</p>
               </div>
-              <h1 className="text-center md:text-left text-5xl leading-[68px] md:text-6xl md:leading-[84px] font-bold max-w-xl text-slate-50 drop-shadow-lg">
+              <h1 className="text-center md:text-left text-4xl leading-tight sm:text-5xl sm:leading-[68px] md:text-6xl md:leading-[84px] font-bold max-w-xl text-slate-50 drop-shadow-lg mt-4">
                 Transforming Waste Into Wonder
               </h1>
-              <p className="text-center md:text-left text-lg text-slate-200 max-w-lg mt-4 font-medium">
+              <p className="text-center md:text-left text-base sm:text-lg text-slate-200 max-w-lg mt-4 font-medium px-2 sm:px-0">
                 Pioneering eco-friendly solutions through bio-plastics, handcrafted upcycled products, and zero-waste event services. Building a sustainable future, one innovation at a time.
               </p>
-              <div className="flex items-center gap-4 mt-8 text-sm">
-                <button className="bg-emerald-600 hover:bg-emerald-700 text-white active:scale-95 rounded-full px-8 h-12 font-bold shadow-lg hover:shadow-xl transition-all">
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-8 text-sm w-full sm:w-auto px-4 sm:px-0">
+                <button className="bg-emerald-600 hover:bg-emerald-700 text-white active:scale-95 rounded-full px-8 h-12 font-bold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
                   Explore Our Verticals
                 </button>
-                <button className="flex items-center gap-2 border-2 border-emerald-500/50 bg-white/10 backdrop-blur-sm active:scale-95 hover:bg-white/20 transition text-white rounded-full px-7 h-12 font-semibold">
+                <button className="flex items-center justify-center gap-2 border-2 border-emerald-500/50 bg-white/10 backdrop-blur-sm active:scale-95 hover:bg-white/20 transition text-white rounded-full px-7 h-12 font-semibold w-full sm:w-auto">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-video-icon lucide-video">
                     <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
                     <rect x="2" y="6" width="14" height="12" rx="2"/>
@@ -221,14 +225,14 @@ export default function Hero() {
               alt="Revolve Green Logo"
               width={500}
               height={500}
-              className="max-w-xs sm:max-w-sm lg:max-w-md w-full h-auto object-contain drop-shadow-2xl transition-all duration-300 animate-spin-slow"
+              className="hidden md:block max-w-xs sm:max-w-sm lg:max-w-md w-full h-auto object-contain drop-shadow-2xl transition-all duration-300 animate-spin-slow"
               priority
             />
           </div>
 
           {/* Card Container */}
           <div
-            className="card-container relative w-full md:w-[70%] lg:w-[55%] flex flex-col md:flex-row gap-4 md:gap-0 z-20"
+            className="card-container hidden md:flex relative w-full md:w-[70%] lg:w-[55%] flex-col md:flex-row gap-4 md:gap-0 z-20"
             style={{ perspective: '1000px' }}
           >
 

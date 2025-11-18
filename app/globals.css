@@ -142,3 +142,21 @@
 .animate-spin-slow {
   animation: spin-slow 8s linear infinite;
 }
+
+/* Mobile-specific styles */
+@media (max-width: 999px) {
+  .sticky-section {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh;
+  }
+
+  .card-container {
+    display: none !important;
+  }
+
+  .video-tagline {
+    opacity: 1 !important;
+    position: absolute !important;
+  }
+}
