@@ -8,84 +8,84 @@ const FeaturedProducts = () => {
       id: 12,
       name: "COMPOSTABLE D-CUT BAGS",
       description: "D-Cut Compostable Carry Bags: Convenience Meets Sustainability",
-      image: "/uploads/6835971ebbd8d_d-cut bag.png",
+      image: "/uploads/d-cut-bags.png",
       slug: "compostable-d-cut-bags"
     },
     {
       id: 11,
       name: "COMPOSTABLE CARRY BAGS",
       description: "Embrace Sustainability with Our Compostable Carry Bags!",
-      image: "/uploads/68359297448ae_carry bags.png",
+      image: "/uploads/caryy-bags.png",
       slug: "compostable-carry-bags"
     },
     {
       id: 16,
       name: "COMPOSTABLE GARBAGE BAGS",
       description: "Manage Waste Responsibly with Our Compostable Garbage Bags!",
-      image: "/uploads/683db40d85abe_garbage bag.png",
+      image: "/uploads/garbage-bags.png",
       slug: "compostable-garbage-bags"
     },
     {
       id: 21,
       name: "COMPOSTABLE PET POOP BAGS",
       description: "Care for Your Pet, Care for the Planet: Compostable Pet Poop Bags!",
-      image: "/uploads/683db47f28560_pet poop bags.png",
+      image: "/uploads/pet-poop-bags.png",
       slug: "compostable-pet-poop-bags"
     },
     {
       id: 19,
       name: "COMPOSTABLE PRASAD BAGS",
       description: "Offer Blessings with Purity and Responsibility: Compostable Prasad Bags",
-      image: "/uploads/683db4509608d_prasad bags.png",
+      image: "/uploads/prashad-bags.png",
       slug: "compostable-prasad-bags"
     },
     {
       id: 18,
       name: "COMPOSTABLE GROCERY BAGS",
       description: "Go Green with Your Groceries: Introducing Our Compostable Grocery Bags!",
-      image: "/uploads/683db444563a7_grocery.png",
+      image: "/uploads/grocery-bags.png",
       slug: "compostable-grocery-bags"
     },
     {
       id: 15,
       name: "COMPOSTABLE GIFT BAGS",
       description: "Elevate Your Gifting with Eco-Chic Compostable Gift Bags!",
-      image: "/uploads/683db42c1015b_gift bag.png",
+      image: "/uploads/gift-bags.png",
       slug: "compostable-gift-bags"
     },
     {
       id: 17,
       name: "COMPOSTABLE NURSERY BAGS",
       description: "Nurture Growth, Naturally: Compostable Nursery Bags for a Greener Earth!",
-      image: "/uploads/683db41c801a9_nursary bags.png",
+      image: "/uploads/nursery-bags.png",
       slug: "compostable-nursery-bags"
     },
     {
       id: 14,
       name: "COMPOSTABLE THANK YOU BAGS",
       description: "Show Gratitude the Green Way with Our Compostable \"Thank You\" Bags!",
-      image: "/uploads/683db43a048ed_thankyou bag.png",
+      image: "/uploads/thank-you-bags.png",
       slug: "compostable-thank-you-bags"
     },
     {
       id: 23,
       name: "COMPOSTABLE COURIER BAGS",
       description: "Ship Sustainably with Our Compostable Courier Bags!",
-      image: "/uploads/683db5339acd5_courier bag.png",
+      image: "/uploads/courier-bags.png",
       slug: "compostable-courier-bags"
     },
     {
       id: 20,
       name: "COMPOSTABLE BIO-HAZARD BAGS",
       description: "Advanced Bio-Safety Meets Environmental Consideration: Compostable Bio-Hazard Bags",
-      image: "/uploads/683db4614b010_biohazard.png",
+      image: "/uploads/bio-hazard-bags.png",
       slug: "compostable-bio-hazard-bags"
     },
     {
       id: 22,
       name: "COMPOSTABLE GARMENT BAGS",
       description: "Protect Your Garments and the Planet with Our Compostable Garment Bags!",
-      image: "/uploads/683db492009c9_garment bag.png",
+      image: "/uploads/garment-bags.png",
       slug: "compostable-garment-bags"
     }
   ];
