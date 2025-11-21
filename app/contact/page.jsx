@@ -7,7 +7,7 @@ export default function ContactPage() {
   const [state, handleSubmit] = useForm("xdkyawze");
 
   return (
-    <div className="min-h-screen">
+      <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-32 pb-24">
         {/* Green Glow Effects */}
@@ -28,9 +28,6 @@ export default function ContactPage() {
         {/* Main Heading */}
         <h1 className="text-5xl leading-[68px] md:text-6xl md:leading-[84px] font-bold max-w-4xl text-center mt-6 text-gray-900 drop-shadow-lg">
           CONTACT US
-          <span className="block bg-gradient-to-r from-green-500 to-emerald-400 text-transparent bg-clip-text mt-4">
-            Let's Make Something Great Together
-          </span>
         </h1>
 
         {/* Subtitle */}
@@ -41,35 +38,45 @@ export default function ContactPage() {
 
       {/* Contact Info Cards */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {/* Phone Card */}
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all">
-            <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <Phone className="w-8 h-8 text-white" strokeWidth={2.5} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          {/* Call Us Card */}
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <div className="bg-green-600 w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <Phone className="w-7 h-7 text-white" strokeWidth={2.5} />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Call Us</h3>
-            <p className="text-gray-800 font-semibold text-lg">+91 73830 70297</p>
-            <p className="text-gray-600 text-sm mt-2">Mon-Sat: 9:00 AM - 6:00 PM</p>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Call Us</h3>
+            <p className="text-gray-800 font-semibold text-base">+91 73830 70297</p>
+            <p className="text-gray-600 text-xs mt-1">Mon-Sat: 9:00 AM - 6:00 PM</p>
           </div>
 
-          {/* Email Card */}
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all">
-            <div className="bg-emerald-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <Mail className="w-8 h-8 text-white" strokeWidth={2.5} />
+          {/* Email Us Card */}
+          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <div className="bg-emerald-600 w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <Mail className="w-7 h-7 text-white" strokeWidth={2.5} />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Email Us</h3>
-            <p className="text-gray-800 font-semibold text-sm">sales@revolvegreen.com</p>
-            <p className="text-gray-800 font-semibold text-sm mt-1">preet@revolvegreen.com</p>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Email Us</h3>
+            <p className="text-gray-800 font-semibold text-xs leading-relaxed">sales@revolvegreen.com</p>
+            <p className="text-gray-800 font-semibold text-xs leading-relaxed">preet@revolvegreen.com</p>
           </div>
 
-          {/* Website Card */}
-          <div className="bg-gradient-to-br from-teal-50 to-green-50 border-2 border-teal-300 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all">
-            <div className="bg-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <Globe className="w-8 h-8 text-white" strokeWidth={2.5} />
+          {/* Visit Us Online Card */}
+          <div className="bg-gradient-to-br from-teal-50 to-green-50 border-2 border-teal-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <div className="bg-teal-600 w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <Globe className="w-7 h-7 text-white" strokeWidth={2.5} />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Visit Us Online</h3>
-            <p className="text-gray-800 font-semibold text-lg">revolvegreen.in</p>
-            <p className="text-gray-600 text-sm mt-2">Explore our full catalog</p>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Visit Us Online</h3>
+            <p className="text-gray-800 font-semibold text-base">revolvegreen.in</p>
+            <p className="text-gray-600 text-xs mt-1">Explore our full catalog</p>
+          </div>
+
+          {/* Our Location Card */}
+          <div className="bg-gradient-to-br from-green-50 to-lime-50 border-2 border-green-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <div className="bg-lime-600 w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <MapPin className="w-7 h-7 text-white" strokeWidth={2.5} />
+            </div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Our Location</h3>
+            <p className="text-gray-800 font-semibold text-xs leading-relaxed">India</p>
+            <p className="text-gray-600 text-xs mt-1">Serving nationwide</p>
           </div>
         </div>
       </section>

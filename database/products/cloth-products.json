@@ -8,7 +8,7 @@
       "diameter": "11.5\"",
       "price": "₹500",
       "material": "Upcycled Cloth",
-      "image": "/item.png"
+      "image": "/products/Cloth-mat.png"
     },
     {
       "id": "cloth-002",
@@ -17,7 +17,7 @@
       "price": "Custom",
       "material": "Upcycled Cloth",
       "description": "Customizable cloth baskets",
-      "image": "/item.png"
+      "image": "/products/Cloth-baskets.png"
     },
     {
       "id": "cloth-003",
@@ -26,7 +26,7 @@
       "height": "4\"",
       "price": "₹300",
       "material": "Upcycled Cloth",
-      "image": "/item.png"
+      "image": "/products/Cloth-pen-stand.png"
     },
     {
       "id": "cloth-004",
@@ -34,7 +34,7 @@
       "dimensions": "6\" x 9\"",
       "price": "₹350",
       "material": "Handmade Paper & Cloth",
-      "image": "/item.png"
+      "image": "/products/Cloth-diary.png"
     },
     {
       "id": "cloth-005",
@@ -43,7 +43,7 @@
       "height": "15\"",
       "price": "₹30",
       "material": "Eco-friendly Cloth",
-      "image": "/item.png"
+      "image": "/products/Cloth-bags.png"
     },
     {
       "id": "cloth-006",
@@ -52,7 +52,7 @@
       "height": "12\"",
       "price": "₹20",
       "material": "Eco-friendly Cloth",
-      "image": "/item.png"
+      "image": "/products/Cloth-potli.png"
     }
   ]
 }

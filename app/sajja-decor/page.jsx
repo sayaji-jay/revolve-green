@@ -1,17 +1,37 @@
 'use client';
 
 import { Sparkles, Leaf, Heart, Check, ChevronRight, Video, Recycle, Package, Store } from 'lucide-react';
-import Image from 'next/image';
 import sajjaDecorData from '@/database/products/sajja-decor-products.json';
+import SajjaDecorCard from '@/components/SajjaDecorCard';
 
 export default function SajjaDecor() {
   return (
-    <div className="min-h-screen">
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+        * {
+          font-family: 'Lato', sans-serif;
+        }
+      `}</style>
+
+      <div
+        className="min-h-screen relative"
+        style={{
+          backgroundImage: 'url(/images/1.jpeg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Overlay for better readability */}
+        <div className="absolute inset-0 bg-white/90 backdrop-blur-[1px]"></div>
+
       {/* Hero Section with Green Theme */}
-      <div className="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-32 pb-24">
+      <div className="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-32 pb-24 z-10">
         {/* Green Glow Effects */}
-        <div className="absolute top-28 -z-1 left-1/4 size-72 bg-green-600 blur-[300px]"></div>
-        <div className="absolute top-40 -z-1 right-1/4 size-96 bg-emerald-500 blur-[350px]"></div>
+        <div className="absolute top-28 -z-1 left-1/4 size-72 bg-green-600 blur-[300px] opacity-50"></div>
+        <div className="absolute top-40 -z-1 right-1/4 size-96 bg-emerald-500 blur-[350px] opacity-50"></div>
 
         {/* Badge */}
         <a href="#offerings" className="group flex items-center gap-2 rounded-full p-1 pr-3 mt-44 bg-green-600/80 backdrop-blur-sm hover:bg-green-600/90 transition shadow-lg">
@@ -27,7 +47,7 @@ export default function SajjaDecor() {
         {/* Main Heading */}
         <h1 className="text-5xl leading-[68px] md:text-6xl md:leading-[84px] font-bold max-w-3xl text-center mt-6 text-gray-900 drop-shadow-lg">
           UPCYCLED DECOR SERVICES
-          <span className="block bg-gradient-to-r from-green-500 to-emerald-400 text-transparent bg-clip-text mt-4">
+          <span className="block bg-linear-to-r from-green-500 to-emerald-400 text-transparent bg-clip-text mt-4">
             Making Decor Waste Free
           </span>
         </h1>
@@ -66,7 +86,7 @@ export default function SajjaDecor() {
       </div>
 
       {/* Combined Section: Our Decor Materials + Why Choose Sajja */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="bg-white/95 backdrop-blur-sm border-2 border-green-300 rounded-3xl shadow-2xl p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left Side: Our Decor is Made From */}
@@ -120,9 +140,9 @@ export default function SajjaDecor() {
 
               <div className="space-y-6">
                 {/* Reason 1 */}
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-2 border-green-300 shadow-md hover:shadow-xl hover:shadow-green-500/30 transition-all">
+                <div className="bg-linear-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-2 border-green-300 shadow-md hover:shadow-xl hover:shadow-green-500/30 transition-all">
                   <div className="flex items-start gap-4">
-                    <div className="bg-gradient-to-br from-green-600 to-emerald-500 text-white rounded-xl w-14 h-14 flex items-center justify-center shadow-lg shrink-0">
+                    <div className="bg-linear-to-br from-green-600 to-emerald-500 text-white rounded-xl w-14 h-14 flex items-center justify-center shadow-lg shrink-0">
                       <Recycle className="w-7 h-7" strokeWidth={2.5} />
                     </div>
                     <div>
@@ -137,9 +157,9 @@ export default function SajjaDecor() {
                 </div>
 
                 {/* Reason 2 */}
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border-2 border-emerald-300 shadow-md hover:shadow-xl hover:shadow-emerald-500/30 transition-all">
+                <div className="bg-linear-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border-2 border-emerald-300 shadow-md hover:shadow-xl hover:shadow-emerald-500/30 transition-all">
                   <div className="flex items-start gap-4">
-                    <div className="bg-gradient-to-br from-emerald-600 to-teal-500 text-white rounded-xl w-14 h-14 flex items-center justify-center shadow-lg shrink-0">
+                    <div className="bg-linear-to-br from-emerald-600 to-teal-500 text-white rounded-xl w-14 h-14 flex items-center justify-center shadow-lg shrink-0">
                       <Package className="w-7 h-7" strokeWidth={2.5} />
                     </div>
                     <div>
@@ -154,9 +174,9 @@ export default function SajjaDecor() {
                 </div>
 
                 {/* Reason 3 */}
-                <div className="bg-gradient-to-br from-teal-50 to-green-50 rounded-2xl p-6 border-2 border-teal-300 shadow-md hover:shadow-xl hover:shadow-teal-500/30 transition-all">
+                <div className="bg-linear-to-br from-teal-50 to-green-50 rounded-2xl p-6 border-2 border-teal-300 shadow-md hover:shadow-xl hover:shadow-teal-500/30 transition-all">
                   <div className="flex items-start gap-4">
-                    <div className="bg-gradient-to-br from-teal-600 to-green-500 text-white rounded-xl w-14 h-14 flex items-center justify-center shadow-lg shrink-0">
+                    <div className="bg-linear-to-br from-teal-600 to-green-500 text-white rounded-xl w-14 h-14 flex items-center justify-center shadow-lg shrink-0">
                       <Leaf className="w-7 h-7" strokeWidth={2.5} />
                     </div>
                     <div>
@@ -176,7 +196,7 @@ export default function SajjaDecor() {
       </section>
 
       {/* Our Services + Banner Section Side by Side */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Side: Our Services */}
           <div className="p-8">
@@ -218,7 +238,7 @@ export default function SajjaDecor() {
 
           {/* Right Side: Banner Card */}
           <div className="flex items-center">
-            <div className="flex flex-col items-center justify-center w-full text-center rounded-3xl py-16 md:py-20 bg-gradient-to-br from-green-700 to-emerald-600 relative overflow-hidden shadow-2xl border-2 border-green-400">
+            <div className="flex flex-col items-center justify-center w-full text-center rounded-3xl py-16 md:py-20 bg-linear-to-br from-green-700 to-emerald-600 relative overflow-hidden shadow-2xl border-2 border-green-400">
               {/* Decorative elements */}
               <div className="absolute top-0 left-0 w-full h-full opacity-10">
                 <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
@@ -228,7 +248,7 @@ export default function SajjaDecor() {
               <h1 className="text-2xl md:text-3xl font-bold text-white max-w-md relative z-10 px-4 drop-shadow-lg">
                 Transform Your Events with Sustainable, Beautiful Decor Solutions
               </h1>
-              <div className="h-[3px] w-32 my-4 bg-gradient-to-l from-transparent via-white to-transparent"></div>
+              <div className="h-[3px] w-32 my-4 bg-linear-to-l from-transparent via-white to-transparent"></div>
               <p className="text-base text-white max-w-md relative z-10 px-4 drop-shadow-md font-medium">
                 From corporate events to cafés, we bring your vision to life with upcycled materials that tell a story of sustainability and creativity.
               </p>
@@ -241,56 +261,24 @@ export default function SajjaDecor() {
       </section>
 
       {/* Products Section with Product Cards */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="offerings" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900 drop-shadow-md">
           Our Offerings
         </h2>
         <p className="text-center text-gray-800 text-lg mb-16 drop-shadow-sm font-semibold">
-          Browse our collection of upcycled decor items
+          Browse our collection of upcycled decor items available for rental
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Product Cards from JSON */}
-          {sajjaDecorData.products.map((product) => (
-            <div key={product.id} className="flex flex-col bg-white/95 backdrop-blur-sm border-2 border-green-300 shadow-xl hover:shadow-2xl hover:shadow-green-500/30 transition-all rounded-2xl overflow-hidden">
-              {/* Product Image */}
-              <div className="w-full h-80 bg-gradient-to-br from-green-100 to-emerald-100 relative">
-                {product.image ? (
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Sparkles className="w-20 h-20 text-green-500 opacity-40" strokeWidth={2} />
-                  </div>
-                )}
-                <span className="absolute top-4 right-4 px-4 py-2 bg-green-600 text-white rounded-full text-sm font-bold shadow-lg">
-                  RENTAL
-                </span>
-              </div>
-
-              {/* Product Details */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-bold text-gray-900">{product.name}</h3>
-                </div>
-                <p className="text-sm text-green-600 mb-4 font-bold">{product.category}</p>
-                {product.description && (
-                  <p className="text-sm text-gray-700 mb-3">{product.description}</p>
-                )}
-                <p className="text-2xl font-bold text-gray-900">{product.price}<span className="text-sm text-gray-700 font-medium">/event</span></p>
-              </div>
-            </div>
+        <div className="space-y-12">
+          {sajjaDecorData.products.map((product, index) => (
+            <SajjaDecorCard key={product.id} product={product} index={index} />
           ))}
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-32">
-        <div className="bg-gradient-to-r from-green-700 via-emerald-700 to-teal-600 rounded-3xl shadow-2xl p-12 md:p-16 text-center text-white relative overflow-hidden border-2 border-green-400">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-32 relative z-10">
+        <div className="bg-linear-to-r from-green-700 via-emerald-700 to-teal-600 rounded-3xl shadow-2xl p-12 md:p-16 text-center text-white relative overflow-hidden border-2 border-green-400">
           {/* Decorative elements */}
           <div className="absolute top-0 left-0 w-full h-full opacity-10">
             <div className="absolute top-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
@@ -308,6 +296,8 @@ export default function SajjaDecor() {
           </button>
         </div>
       </section>
+
     </div>
+    </>
   );
 }

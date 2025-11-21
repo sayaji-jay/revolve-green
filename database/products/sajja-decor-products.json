@@ -3,58 +3,75 @@
   "description": "Sustainable decor solutions for events, weddings, and special occasions",
   "products": [
     {
-      "id": "decor-001",
-      "name": "Fabric Wall Hangings",
-      "category": "Wall Decor",
-      "price": "₹2,500",
-      "material": "Upcycled Fabric",
-      "description": "Beautiful wall hangings made from sustainable fabrics",
-      "image": "/item.png"
+      "id": 1,
+      "name": "Streamers",
+      "image": "/products/Sajja-streamers.png",
+      "specs": [
+        { "label": "Length", "value": "10 ft" },
+        { "label": "Height", "value": "2 ft" },
+        { "label": "Colour", "value": "Multi-coloured" }
+      ],
+      "rate": "₹10/- per feet",
+      "description": "Beautiful multi-coloured streamers made from upcycled fabric scraps, perfect for adding vibrant decorations to any event."
     },
     {
-      "id": "decor-002",
-      "name": "Upcycled Centerpieces",
-      "category": "Table Decor",
-      "price": "₹1,800",
-      "material": "Upcycled Materials",
-      "description": "Elegant centerpieces for tables and events",
-      "image": "/item.png"
+      "id": 2,
+      "name": "Pompoms",
+      "image": "/products/Sajja-pompoms.png",
+      "specs": [
+        { "label": "Length", "value": "10 ft" },
+        { "label": "Height", "value": "9 inches" },
+        { "label": "Colours", "value": "Orange, Red, White, Green" }
+      ],
+      "rate": "₹100/- per piece",
+      "description": "Fluffy and festive pompoms crafted from recycled materials, available in vibrant colours to brighten up your celebrations."
     },
     {
-      "id": "decor-003",
-      "name": "Eco Garlands",
-      "category": "Event Decor",
-      "price": "₹1,200",
-      "material": "Natural & Recycled Materials",
-      "description": "Eco-friendly garlands for decorating events",
-      "image": "/item.png"
+      "id": 3,
+      "name": "Latkans",
+      "image": "/products/Sajja-latkans.png",
+      "specs": [
+        { "label": "Length", "value": "6 ft" },
+        { "label": "Width", "value": "4 inches" },
+        { "label": "Colors", "value": "Yellow, Orange, Pink, Purple, White, Blue, Green, Red" }
+      ],
+      "rate": "₹100/- per piece",
+      "description": "Traditional latkans reimagined with upcycled fabrics, offering a wide range of colors for authentic Indian celebrations."
     },
     {
-      "id": "decor-004",
-      "name": "Sustainable Backdrops",
-      "category": "Photo Walls",
-      "price": "₹5,000",
-      "material": "Recycled & Natural Materials",
-      "description": "Stunning backdrops for photography and events",
-      "image": "/item.png"
+      "id": 4,
+      "name": "MLP Garlands",
+      "image": "/products/Sajja-mlp.png",
+      "specs": [
+        { "label": "Length", "value": "10 ft" },
+        { "label": "Width", "value": "5 inches" },
+        { "label": "Color", "value": "Silver" }
+      ],
+      "rate": "₹50/- per piece",
+      "description": "Innovative garlands made from Multi-Layer Plastic (MLP) waste, transforming non-recyclable materials into stunning silver decorations."
     },
     {
-      "id": "decor-005",
-      "name": "Reclaimed Wood Signs",
-      "category": "Signage",
-      "price": "₹1,500",
-      "material": "Reclaimed Wood",
-      "description": "Custom signage made from reclaimed wood",
-      "image": "/item.png"
+      "id": 5,
+      "name": "Bottle Cap Hangings",
+      "image": "/products/Sajja-bottle-cap.png",
+      "specs": [
+        { "label": "Length", "value": "3 ft, 6 ft" },
+        { "label": "Color", "value": "Multi-Coloured, Red, Blue, Yellow, Pink" }
+      ],
+      "rate": "₹40/- (3 feet), ₹80/- (6 feet)",
+      "description": "Creative hangings crafted from discarded bottle caps, available in various lengths and vibrant color combinations."
     },
     {
-      "id": "decor-006",
-      "name": "Bottle Art Installations",
-      "category": "Installations",
-      "price": "₹3,500",
-      "material": "Upcycled Bottles",
-      "description": "Artistic installations made from recycled bottles",
-      "image": "/item.png"
+      "id": 6,
+      "name": "Bangle Hangings",
+      "image": "/products/Sajja-bangle-hanging.png",
+      "specs": [
+        { "label": "Length", "value": "18 inches" },
+        { "label": "Width", "value": "3 inches" },
+        { "label": "Colors", "value": "Pink, Green" }
+      ],
+      "rate": "₹30/- per piece",
+      "description": "Elegant hangings made from repurposed bangles, adding a touch of sparkle and tradition to your event decor."
     }
   ]
 }

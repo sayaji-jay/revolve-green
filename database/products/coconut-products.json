@@ -7,7 +7,7 @@
       "name": "Candle",
       "price": "₹100",
       "material": "Coconut Shell",
-      "image": "/item.png"
+      "image": "/products/Coconut-candle.png"
     },
     {
       "id": "coconut-002",
@@ -16,7 +16,7 @@
       "diameter": "3.5\"",
       "price": "₹100",
       "material": "Coconut Shell",
-      "image": "/item.png"
+      "image": "/products/Coconut-cup.png"
     },
     {
       "id": "coconut-003",
@@ -25,7 +25,7 @@
       "diameter": "4\"",
       "price": "₹80",
       "material": "Coconut Shell",
-      "image": "/item.png"
+      "image": "/products/Coconut-planter.png"
     }
   ]
 }

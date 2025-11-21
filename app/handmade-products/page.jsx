@@ -44,48 +44,54 @@ function ProductCarousel({ products, categoryLabel, Icon }) {
       {/* Scrollable Products Container */}
       <div
         ref={scrollContainerRef}
-        className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
+        className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {products.map((product) => (
           <div
             key={product.id}
-            className="flex-shrink-0 w-64 flex flex-col bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 shadow-lg hover:shadow-xl transition-all rounded-2xl overflow-hidden"
+            className="flex-shrink-0 w-80 flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group"
           >
-            <div className="w-full h-48 bg-gradient-to-br from-green-100 to-emerald-100 relative">
+            <div className="overflow-hidden">
               {product.image ? (
                 <Image
                   src={product.image}
                   alt={product.name}
-                  fill
-                  className="object-cover"
+                  width={320}
+                  height={336}
+                  className="w-full h-84 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Icon className="w-16 h-16 text-green-500 opacity-40" strokeWidth={2} />
+                <div className="w-full h-84 bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
+                  <Icon className="w-20 h-20 text-green-500 opacity-40" strokeWidth={2} />
                 </div>
               )}
-              <span className="absolute top-3 right-3 px-3 py-1 bg-green-600 text-white rounded-full text-xs font-bold shadow-lg">
-                {categoryLabel}
-              </span>
             </div>
-            <div className="p-4">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{product.name}</h3>
+            <div className="p-5 flex-1 flex flex-col">
+              <div className="mb-3">
+                <span className="inline-block px-3 py-1 bg-green-600 text-white rounded-full text-xs font-bold shadow-md">
+                  {categoryLabel}
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">{product.name}</h3>
               {product.customizable ? (
-                <p className="text-xs text-green-600 mb-3 font-bold">Customizable in different sizes</p>
+                <p className="text-sm text-green-600 mb-3 font-bold">Customizable in different sizes</p>
               ) : (
                 <div className="space-y-1 mb-3">
-                  {product.diameter && <p className="text-xs text-gray-700 font-medium">Diameter: {product.diameter}</p>}
-                  {product.height && <p className="text-xs text-gray-700 font-medium">Height: {product.height}</p>}
-                  {product.length && <p className="text-xs text-gray-700 font-medium">Length: {product.length}</p>}
-                  {product.width && <p className="text-xs text-gray-700 font-medium">Width: {product.width}</p>}
-                  {product.material && <p className="text-xs text-gray-700 font-medium">Material: {product.material}</p>}
-                  {product.dimensions && <p className="text-xs text-gray-700 font-medium">Dimensions: {product.dimensions}</p>}
-                  {product.size && <p className="text-xs text-gray-700 font-medium">Size: {product.size}</p>}
+                  {product.diameter && <p className="text-sm text-gray-600">Diameter: {product.diameter}</p>}
+                  {product.height && <p className="text-sm text-gray-600">Height: {product.height}</p>}
+                  {product.length && <p className="text-sm text-gray-600">Length: {product.length}</p>}
+                  {product.width && <p className="text-sm text-gray-600">Width: {product.width}</p>}
+                  {product.material && <p className="text-sm text-gray-600">Material: {product.material}</p>}
+                  {product.dimensions && <p className="text-sm text-gray-600">Dimensions: {product.dimensions}</p>}
+                  {product.size && <p className="text-sm text-gray-600">Size: {product.size}</p>}
                 </div>
               )}
-              {product.description && <p className="text-xs text-gray-700 mb-2 font-medium">{product.description}</p>}
-              <p className="text-xl font-bold text-gray-900">{product.price}</p>
+              {product.description && <p className="text-sm text-gray-600 mb-3">{product.description}</p>}
+              <div className="mt-auto pt-3">
+                <p className="text-2xl font-bold text-gray-900">{product.price}</p>
+              </div>
             </div>
           </div>
         ))}
@@ -102,9 +108,17 @@ export default function HandmadeProductsPage() {
   const specialProducts = specialData.products;
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-32 pb-24">
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+        * {
+          font-family: 'Lato', sans-serif;
+        }
+      `}</style>
+
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <div className="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-32 pb-24">
         {/* Green Glow Effects */}
         <div className="absolute top-28 -z-1 left-1/4 size-72 bg-green-600 blur-[300px]"></div>
         <div className="absolute top-40 -z-1 right-1/4 size-96 bg-emerald-500 blur-[350px]"></div>
@@ -331,5 +345,6 @@ export default function HandmadeProductsPage() {
         }
       `}</style>
     </div>
+    </>
   );
 }

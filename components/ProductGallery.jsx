@@ -19,22 +19,28 @@ export default function ProductGallery() {
   }, []);
 
   const allImages = [
-    "/creations/image-1.png",
-    "/creations/image-2.png",
-    "/creations/image-3.png",
-    "/creations/image-4.png",
-    "/creations/image-5.png",
-    "/creations/image-6.png"
+    "/images/1.jpeg",
+    "/images/2.jpeg",
+    "/images/3.jpeg",
+    "/images/4.jpeg",
+    "/images/5.jpeg",
+    "/images/6.jpeg",
+    "/images/7.jpeg",
+    "/images/8.jpeg",
+    "/images/9.jpeg",
+    "/images/10.jpeg",
+    "/images/11.jpeg",
+    "/images/12.jpeg"
   ];
 
-  const displayImages = isMobile ? allImages.slice(0, 3) : allImages;
+  const displayImages = isMobile ? allImages.slice(0, 6) : allImages;
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
         * {
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Lato', sans-serif;
         }
       `}</style>
 

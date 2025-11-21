@@ -1,13 +1,13 @@
-import { Comic_Neue } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import BackgroundZoom from "@/components/BackgroundZoom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const comicFont = Comic_Neue({
-  weight: ["400", "700"],
+const latoFont = Lato({
+  weight: ["300", "400", "700", "900"],
   subsets: ["latin"],
-  variable: "--font-comic",
+  variable: "--font-lato",
 });
 
 export const metadata = {
@@ -25,8 +25,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${comicFont.variable} antialiased relative min-h-screen overflow-x-hidden flex flex-col`}
-        style={{ fontFamily: 'var(--font-comic), cursive' }}
+        className={`${latoFont.variable} antialiased relative min-h-screen overflow-x-hidden flex flex-col`}
+        style={{ fontFamily: 'var(--font-lato), sans-serif' }}
       >
         {/* Background with Zoom Effect */}
         <BackgroundZoom />
