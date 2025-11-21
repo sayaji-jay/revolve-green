@@ -91,14 +91,9 @@ const FeaturedProducts = () => {
   ];
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
-      `}</style>
-
-      <section className="py-16 bg-white">
+    <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-extrabold font-['Lato'] text-center text-gray-800 mb-3">
+          <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-3">
             FEATURED PRODUCTS
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
@@ -126,44 +121,20 @@ const FeaturedProducts = () => {
                   <p className="text-gray-600 text-sm mt-2">
                     {product.description}
                   </p>
-                  <div className="flex justify-between items-center mt-4">
+                  {/* <div className="flex justify-between items-center mt-4">
                     <Link
                       href={`/products/${product.slug}`}
                       className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm hover:bg-green-200 transition duration-300"
                     >
                       Show more info
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/products"
-              className="inline-flex items-center px-6 py-3 border border-green-600 text-green-600 rounded-full hover:bg-green-50 transition duration-300"
-            >
-              View All Products
-              <svg
-                className="ml-2 w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </Link>
-          </div>
         </div>
       </section>
-    </>
   );
 };
 

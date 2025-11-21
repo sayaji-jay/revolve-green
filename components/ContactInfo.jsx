@@ -4,14 +4,9 @@ import { Phone, Mail, Clock, MapPin } from "lucide-react";
 
 const ContactInfo = () => {
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
-      `}</style>
-
-      <section className="py-16 bg-gradient-to-br from-green-50 to-emerald-50">
+    <section className="py-16 bg-gradient-to-br from-green-50 to-emerald-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-extrabold font-['Lato'] text-center text-gray-800 mb-3">
+          <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-3">
             CONTACT US
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
@@ -79,7 +74,6 @@ const ContactInfo = () => {
           </div>
         </div>
       </section>
-    </>
   );
 };
 

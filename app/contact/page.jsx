@@ -36,51 +36,6 @@ export default function ContactPage() {
         </p>
       </div>
 
-      {/* Contact Info Cards */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {/* Call Us Card */}
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
-            <div className="bg-green-600 w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-lg">
-              <Phone className="w-7 h-7 text-white" strokeWidth={2.5} />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Call Us</h3>
-            <p className="text-gray-800 font-semibold text-base">+91 73830 70297</p>
-            <p className="text-gray-600 text-xs mt-1">Mon-Sat: 9:00 AM - 6:00 PM</p>
-          </div>
-
-          {/* Email Us Card */}
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
-            <div className="bg-emerald-600 w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-lg">
-              <Mail className="w-7 h-7 text-white" strokeWidth={2.5} />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Email Us</h3>
-            <p className="text-gray-800 font-semibold text-xs leading-relaxed">sales@revolvegreen.com</p>
-            <p className="text-gray-800 font-semibold text-xs leading-relaxed">preet@revolvegreen.com</p>
-          </div>
-
-          {/* Visit Us Online Card */}
-          <div className="bg-gradient-to-br from-teal-50 to-green-50 border-2 border-teal-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
-            <div className="bg-teal-600 w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-lg">
-              <Globe className="w-7 h-7 text-white" strokeWidth={2.5} />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Visit Us Online</h3>
-            <p className="text-gray-800 font-semibold text-base">revolvegreen.in</p>
-            <p className="text-gray-600 text-xs mt-1">Explore our full catalog</p>
-          </div>
-
-          {/* Our Location Card */}
-          <div className="bg-gradient-to-br from-green-50 to-lime-50 border-2 border-green-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
-            <div className="bg-lime-600 w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-lg">
-              <MapPin className="w-7 h-7 text-white" strokeWidth={2.5} />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Our Location</h3>
-            <p className="text-gray-800 font-semibold text-xs leading-relaxed">India</p>
-            <p className="text-gray-600 text-xs mt-1">Serving nationwide</p>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Form Section */}
       <section id="contact-form" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -285,41 +240,42 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Business Hours */}
+            {/* Contact Information Box */}
             <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-3xl p-8 shadow-xl">
-              <div className="flex items-center gap-3 mb-6">
-                <Clock className="w-8 h-8 text-emerald-600" strokeWidth={2.5} />
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Business Hours
-                </h3>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center border-b border-emerald-200 pb-2">
-                  <span className="text-gray-900 font-bold">Monday - Friday</span>
-                  <span className="text-gray-800 font-semibold">9:00 AM - 6:00 PM</span>
+              <h3 className="text-2xl font-bold text-emerald-800 mb-6">
+                Contact Information
+              </h3>
+              <div className="space-y-4">
+                {/* Phone */}
+                <div className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-emerald-600" strokeWidth={2.5} />
+                  <div>
+                    <p className="text-gray-900 font-bold text-base">+91 73830 70297</p>
+                    <p className="text-gray-600 text-sm">Mon-Sat: 9:00 AM - 6:00 PM</p>
+                  </div>
                 </div>
-                <div className="flex justify-between items-center border-b border-emerald-200 pb-2">
-                  <span className="text-gray-900 font-bold">Saturday</span>
-                  <span className="text-gray-800 font-semibold">10:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-900 font-bold">Sunday</span>
-                  <span className="text-gray-800 font-semibold">Closed</span>
-                </div>
-              </div>
-            </div>
 
-            {/* Location Info */}
-            <div className="bg-gradient-to-br from-teal-50 to-green-50 border-2 border-teal-300 rounded-3xl p-8 shadow-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <MapPin className="w-8 h-8 text-teal-600" strokeWidth={2.5} />
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Our Location
-                </h3>
+                {/* Email */}
+                <div className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-emerald-600 mt-1" strokeWidth={2.5} />
+                  <div className="space-y-1">
+                    <p className="text-gray-900 font-bold text-base">sales@revolvegreen.com</p>
+                    <p className="text-gray-900 font-bold text-base">preet@revolvegreen.com</p>
+                  </div>
+                </div>
+
+                {/* Website */}
+                <div className="flex items-center gap-3">
+                  <Globe className="w-5 h-5 text-emerald-600" strokeWidth={2.5} />
+                  <p className="text-gray-900 font-bold text-base">revolvegreen.in</p>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-5 h-5 text-emerald-600" strokeWidth={2.5} />
+                  <p className="text-gray-900 font-bold text-base">India (Serving nationwide)</p>
+                </div>
               </div>
-              <p className="text-gray-800 font-medium leading-relaxed">
-                We're based in India, serving customers nationwide with our eco-friendly handmade products and sustainable decor solutions.
-              </p>
             </div>
           </div>
         </div>

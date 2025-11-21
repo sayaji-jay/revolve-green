@@ -108,21 +108,21 @@ export default function HandmadeProductsPage() {
   const specialProducts = specialData.products;
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
-        * {
-          font-family: 'Lato', sans-serif;
-        }
-      `}</style>
+    <div className="min-h-screen relative">
+        {/* Background Image for entire page */}
+        <div className="fixed inset-0 -z-10">
+          <Image
+            src="/peoples.png"
+            alt="Revolve Green Community"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/50 to-white/70"></div>
+        </div>
 
-      <div className="min-h-screen">
         {/* Hero Section */}
         <div className="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-32 pb-24">
-        {/* Green Glow Effects */}
-        <div className="absolute top-28 -z-1 left-1/4 size-72 bg-green-600 blur-[300px]"></div>
-        <div className="absolute top-40 -z-1 right-1/4 size-96 bg-emerald-500 blur-[350px]"></div>
-
         {/* Badge */}
         <a href="#products" className="group flex items-center gap-2 rounded-full p-1 pr-3 mt-44 bg-green-600/80 backdrop-blur-sm hover:bg-green-600/90 transition shadow-lg">
           <span className="bg-green-800 text-white text-xs px-3.5 py-1 rounded-full">
@@ -345,6 +345,5 @@ export default function HandmadeProductsPage() {
         }
       `}</style>
     </div>
-    </>
   );
 }

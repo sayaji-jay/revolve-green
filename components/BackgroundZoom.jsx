@@ -41,10 +41,10 @@ export default function BackgroundZoom() {
           style={{
             transform: `scale(${scrollScale})`,
             transformOrigin: 'bottom center',
-            transition: 'transform 0.1s ease-out',
             width: '100%',
             height: '100%',
-            position: 'relative'
+            position: 'relative',
+            willChange: 'transform'
           }}
         >
           <Image
@@ -63,7 +63,7 @@ export default function BackgroundZoom() {
         className="fixed bottom-[-100] left-0 right-0 h-32 sm:h-48 md:h-100 z-50 pointer-events-none"
         style={{
           transform: `translateY(${grassY}%)`,
-          transition: 'transform 0.1s ease-out'
+          willChange: 'transform'
         }}
       >
         <Image
