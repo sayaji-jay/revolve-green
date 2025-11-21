@@ -56,7 +56,7 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="Revolve Green Logo"
-              className="w-10 h-10 md:w-12 md:h-12 object-contain animate-spin-slow"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
             <h1
               className={`text-2xl md:text-3xl font-bold transition-colors duration-300 ${
@@ -134,7 +134,7 @@ export default function Header() {
                   <img
                     src="/logo.png"
                     alt="Logo"
-                    className="w-8 h-8 object-contain animate-spin-slow"
+                    className="w-8 h-8 object-contain"
                   />
                   Menu
                 </SheetTitle>

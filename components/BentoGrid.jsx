@@ -39,11 +39,6 @@ export default function SustainabilityBento() {
         {/* Header */}
         <div className="text-center mb-8 md:mb-12 card-animate">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <img
-              src="/logo.png"
-              alt="Revolve Green Logo"
-              className="w-16 h-16 md:w-20 md:h-20 object-contain animate-spin-slow"
-            />
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-emerald-800">
               REVOLVE GREEN
             </h1>

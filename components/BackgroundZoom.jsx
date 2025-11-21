@@ -6,7 +6,6 @@ import Image from 'next/image';
 export default function BackgroundZoom() {
   const [scrollScale, setScrollScale] = useState(1);
   const [forestY, setForestY] = useState(0);
-  const [grassY, setGrassY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,10 +22,6 @@ export default function BackgroundZoom() {
       // Forest image moves upward as you scroll (negative Y moves up)
       const newForestY = -(scrollPercentage * 50);
       setForestY(newForestY);
-
-      // Grass image moves downward as you scroll (positive Y moves down)
-      const newGrassY = scrollPercentage * 10;
-      setGrassY(newGrassY);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -56,29 +51,6 @@ export default function BackgroundZoom() {
             sizes="100vw"
           />
         </div>
-      </section>
-
-      {/* Grass Image at Bottom with Downward Movement */}
-      <section
-        className="fixed bottom-[-100] left-0 right-0 h-32 sm:h-48 md:h-100 z-50 pointer-events-none"
-        style={{
-          transform: `translateY(${grassY}%)`,
-          willChange: 'transform'
-        }}
-      >
-        <Image
-          src="/grass.png"
-          alt="Grass Background"
-          fill
-          style={{
-            objectFit: "cover",
-            objectPosition: "bottom",
-            mixBlendMode: "multiply",
-            opacity: 1
-          }}
-          priority
-          sizes="100vw"
-        />
       </section>
     </>
   );

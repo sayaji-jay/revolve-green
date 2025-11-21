@@ -29,10 +29,6 @@ export default function SajjaDecor() {
 
       {/* Hero Section with Green Theme */}
       <div className="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-32 pb-24 z-10">
-        {/* Green Glow Effects */}
-        <div className="absolute top-28 -z-1 left-1/4 size-72 bg-green-600 blur-[300px] opacity-50"></div>
-        <div className="absolute top-40 -z-1 right-1/4 size-96 bg-emerald-500 blur-[350px] opacity-50"></div>
-
         {/* Badge */}
         <a href="#offerings" className="group flex items-center gap-2 rounded-full p-1 pr-3 mt-44 bg-green-600/80 backdrop-blur-sm hover:bg-green-600/90 transition shadow-lg">
           <span className="bg-green-800 text-white text-xs px-3.5 py-1 rounded-full">
