@@ -10,7 +10,7 @@ import { Sprout, Leaf, TreePine } from 'lucide-react';
 export default function Hero() {
 
   const [isGapanimationcomplaited,setGapanimationcomplaited] = useState(false);
-  const [isFlipanimationcomplaited,setFlipanimationcomplaited] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
 
   const initAnimations = () => {
@@ -43,16 +43,16 @@ export default function Hero() {
       ScrollTrigger.create({
           trigger: ".sticky-section",
           start: "top top",
-          end: `+=${window.innerHeight * 2.5}`,
+          end: `+=${window.innerHeight * 3.5}`,
           pin: true,
           pinSpacing: true,
           scrub: 1,
           onUpdate: (self) => {
               const progress = self.progress;
 
-              // Fade out tagline and bring cards up (0% to 20%)
-              if (progress <= 0.2) {
-                const fadeProgress = progress / 0.2;
+              // Fade out tagline and bring cards up (0% to 15%)
+              if (progress <= 0.15) {
+                const fadeProgress = progress / 0.15;
                 const taglineOpacity = 1 - fadeProgress;
                 const cardY = gsap.utils.mapRange(0, 1, 100, 0, fadeProgress);
                 const cardOpacity = fadeProgress;
@@ -65,26 +65,26 @@ export default function Hero() {
               }
 
 
-            // Card width animation (20% to 40%)
-            if (progress >= 0.2 && progress <= 0.4) {
-              const widthPercentage = gsap.utils.mapRange(0.2, 0.4, 60, 55, progress);
+            // Card width animation (15% to 30%)
+            if (progress >= 0.15 && progress <= 0.3) {
+              const widthPercentage = gsap.utils.mapRange(0.15, 0.3, 60, 55, progress);
               gsap.set(".card-container", { width: `${widthPercentage}%` });
-            } else if (progress < 0.2) {
+            } else if (progress < 0.15) {
               gsap.set(".card-container", { width: `60%` });
             } else {
               gsap.set(".card-container", { width: `55%` });
             }
 
 
-            // Card separation animation (starts at 45%)
-            if (progress >= 0.45 && !isGapanimationcomplaited) {
+            // Card separation animation (starts at 35%)
+            if (progress >= 0.35 && !isGapanimationcomplaited) {
               gsap.to(".card-container", { gap: 20, duration: 0.5, ease: "power3.out" });
               gsap.to(["#card-1","#card-2","#card-3"], { borderRadius: 20, duration: 0.5, ease: "power3.out" });
               // Show the content overlays when cards separate
               gsap.to(".card-content-overlay", { opacity: 1, duration: 0.6, ease: "power3.out", delay: 0.3 });
 
               setGapanimationcomplaited(true);
-            }else if (progress < 0.45 && isGapanimationcomplaited) {
+            }else if (progress < 0.35 && isGapanimationcomplaited) {
 
               gsap.to(".card-container", { gap: 0, duration: 0.5, ease: "power3.out" });
               gsap.to("#card-1", { borderRadius: "20px 0 0 20px", duration: 0.5, ease: "power3.out" });
@@ -96,23 +96,24 @@ export default function Hero() {
               setGapanimationcomplaited(false);
             }
 
-            // Card flip animation (starts at 70%)
-            if (progress >= 0.7 && !isFlipanimationcomplaited) {
-              gsap.to(["#card-1","#card-2","#card-3"], {
-                rotateY: 180,
-                duration: 0.8,
-                ease: "power2.inOut",
-                stagger: 0.15
-              });
-              setFlipanimationcomplaited(true);
-            } else if (progress < 0.7 && isFlipanimationcomplaited) {
-              gsap.to(["#card-1","#card-2","#card-3"], {
-                rotateY: 0,
-                duration: 0.8,
-                ease: "power2.inOut",
-                stagger: 0.15
-              });
-              setFlipanimationcomplaited(false);
+            // Card flip animation - continuous scroll-based (60% to 80%)
+            if (progress >= 0.6 && progress <= 0.8) {
+              // Map progress to rotation (60% = 0deg, 80% = 180deg)
+              const flipProgress = gsap.utils.mapRange(0.6, 0.8, 0, 180, progress);
+
+              gsap.set("#card-1", { rotateY: flipProgress });
+              gsap.set("#card-2", { rotateY: flipProgress });
+              gsap.set("#card-3", { rotateY: flipProgress });
+            } else if (progress < 0.6) {
+              // Before 60%, cards are at 0 degrees
+              gsap.set("#card-1", { rotateY: 0 });
+              gsap.set("#card-2", { rotateY: 0 });
+              gsap.set("#card-3", { rotateY: 0 });
+            } else if (progress > 0.8) {
+              // After 80%, cards stay at 180 degrees
+              gsap.set("#card-1", { rotateY: 180 });
+              gsap.set("#card-2", { rotateY: 180 });
+              gsap.set("#card-3", { rotateY: 180 });
             }
           }
 
@@ -126,6 +127,11 @@ export default function Hero() {
   };
 
   useEffect(() => {
+    // Set loading to false after 1 second
+    const loadingTimeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
     // Initialize Lenis smooth scroll
     const lenis = new Lenis();
     lenis.on('scroll', ScrollTrigger.update);
@@ -153,6 +159,7 @@ export default function Hero() {
 
     // Clean up
     return () => {
+      clearTimeout(loadingTimeout);
       window.removeEventListener('resize', handleResize);
       if (timeout) clearTimeout(timeout);
       lenis.destroy();
@@ -165,11 +172,36 @@ export default function Hero() {
 
 
   return (
-    <section
-      id="home"
-      className="relative w-screen overflow-x-hidden"
-    >
-      <main className="relative text-white">
+    <>
+      {/* Loading Screen */}
+      {isLoading && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
+          <div className="flex flex-col items-center gap-6">
+            <Image
+              src="/logo.png"
+              alt="Revolve Green Logo"
+              width={200}
+              height={200}
+              className="animate-pulse"
+              priority
+            />
+            <div className="flex flex-col items-center gap-2">
+              <p className="text-2xl font-bold text-emerald-900">Loading</p>
+              <div className="flex gap-1">
+                <div className="w-2 h-2 bg-emerald-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                <div className="w-2 h-2 bg-emerald-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                <div className="w-2 h-2 bg-emerald-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <section
+        id="home"
+        className="relative w-screen overflow-x-hidden"
+      >
+        <main className="relative text-white">
 
         {/* Cards Section [Sticky] */}
         <section className="sticky-section relative flex justify-center items-center min-h-screen px-4 md:px-8">
@@ -255,7 +287,7 @@ export default function Hero() {
                 }}
               >
                 <Image
-                  src="/seed.jpg"
+                  src="/image-1.jpg"
                   alt="Seed"
                   fill
                   className="object-cover"
@@ -266,7 +298,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-black/40"></div>
 
                 {/* Content overlay - visible when cards are separated */}
-                <div className="card-content-overlay absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+                <div className="card-content-overlay absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-500">
                   <Sprout className="w-12 h-12 md:w-16 md:h-16 text-green-400 mb-4" />
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
                     The Seed
@@ -276,11 +308,12 @@ export default function Hero() {
 
               {/* Card Back */}
               <div
-                className="card-back absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald-900 via-emerald-800 to-green-900 rounded-[20px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-none md:rounded-br-none flex flex-col items-center justify-center text-center p-6 md:p-8 relative overflow-hidden"
+                className="card-back absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald-900 via-emerald-800 to-green-900 rounded-[20px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-none md:rounded-br-none overflow-hidden"
                 style={{
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
-                  transform: 'rotateY(180deg)'
+                  transform: 'rotateY(180deg)',
+                  position: 'relative'
                 }}
               >
                 {/* Background decorative element */}
@@ -293,12 +326,14 @@ export default function Hero() {
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                  <Sprout className="w-16 h-16 md:w-20 md:h-20 text-green-300 mb-6" />
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Sowed</h3>
-                  <p className="text-sm md:text-base text-green-50/90 leading-relaxed max-w-[280px]">
-                    The beginning of our journey—planting the seed of change through awareness and intention.
-                  </p>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 md:p-8">
+                  <div className="relative z-10 flex flex-col items-center justify-center">
+                    <Sprout className="w-16 h-16 md:w-20 md:h-20 text-green-300 mb-6" />
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Sowed</h3>
+                    <p className="text-sm md:text-base text-green-50/90 leading-relaxed max-w-[280px] text-center">
+                      The beginning of our journey—planting the seed of change through awareness and intention.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -323,7 +358,7 @@ export default function Hero() {
                 }}
               >
                 <Image
-                  src="/growing tree.jpg"
+                  src="/image-2.jpg"
                   alt="Growing Tree"
                   fill
                   className="object-cover object-center"
@@ -334,7 +369,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-black/40"></div>
 
                 {/* Content overlay - visible when cards are separated */}
-                <div className="card-content-overlay absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+                <div className="card-content-overlay absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-500">
                   <Leaf className="w-12 h-12 md:w-16 md:h-16 text-blue-400 mb-4" />
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
                     Sowed
@@ -344,7 +379,7 @@ export default function Hero() {
 
               {/* Card Back */}
               <div
-                className="card-back absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lime-600 via-lime-500 to-green-500 rounded-[20px] flex flex-col items-center justify-center text-center p-6 md:p-8 overflow-hidden"
+                className="card-back absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lime-600 via-lime-500 to-green-500 rounded-[20px] overflow-hidden"
                 style={{
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
@@ -362,12 +397,14 @@ export default function Hero() {
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                  <TreePine className="w-16 h-16 md:w-20 md:h-20 text-emerald-900 mb-6" />
-                  <h3 className="text-2xl md:text-3xl font-bold text-emerald-900 mb-4">Growing Tree</h3>
-                  <p className="text-sm md:text-base text-emerald-900/90 leading-relaxed max-w-[280px]">
-                    Taking action—nurturing growth through consistent effort and dedication to our mission.
-                  </p>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 md:p-8">
+                  <div className="relative z-10 flex flex-col items-center justify-center">
+                    <TreePine className="w-16 h-16 md:w-20 md:h-20 text-emerald-900 mb-6" />
+                    <h3 className="text-2xl md:text-3xl font-bold text-emerald-900 mb-4">Growing Tree</h3>
+                    <p className="text-sm md:text-base text-emerald-900/90 leading-relaxed max-w-[280px] text-center">
+                      Taking action—nurturing growth through consistent effort and dedication to our mission.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -392,7 +429,7 @@ export default function Hero() {
                 }}
               >
                 <Image
-                  src="/tree.jpg"
+                  src="/image-3.jpg"
                   alt="Tree"
                   fill
                   className="object-cover"
@@ -402,7 +439,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-black/40"></div>
 
                 {/* Content overlay - visible when cards are separated */}
-                <div className="card-content-overlay absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+                <div className="card-content-overlay absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-500">
                   <TreePine className="w-12 h-12 md:w-16 md:h-16 text-purple-400 mb-4" />
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
                     The Impact Created
@@ -412,7 +449,7 @@ export default function Hero() {
 
               {/* Card Back */}
               <div
-                className="card-back absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-700 via-green-600 to-emerald-700 rounded-[20px] md:rounded-tr-[20px] md:rounded-br-[20px] md:rounded-tl-none md:rounded-bl-none flex flex-col items-center justify-center text-center p-6 md:p-8 overflow-hidden"
+                className="card-back absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-700 via-green-600 to-emerald-700 rounded-[20px] md:rounded-tr-[20px] md:rounded-br-[20px] md:rounded-tl-none md:rounded-bl-none overflow-hidden"
                 style={{
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
@@ -430,12 +467,14 @@ export default function Hero() {
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                  <Leaf className="w-16 h-16 md:w-20 md:h-20 text-green-200 mb-6" />
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">The Impact Created</h3>
-                  <p className="text-sm md:text-base text-green-50/90 leading-relaxed max-w-[280px]">
-                    Creating change—transforming waste into wonder and building a sustainable future together.
-                  </p>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 md:p-8">
+                  <div className="relative z-10 flex flex-col items-center justify-center">
+                    <Leaf className="w-16 h-16 md:w-20 md:h-20 text-green-200 mb-6" />
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">The Impact Created</h3>
+                    <p className="text-sm md:text-base text-green-50/90 leading-relaxed max-w-[280px] text-center">
+                      Creating change—transforming waste into wonder and building a sustainable future together.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -446,5 +485,6 @@ export default function Hero() {
       </main>
 
     </section>
+    </>
   );
 }
