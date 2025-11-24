@@ -6,24 +6,24 @@ export default function FAQs() {
 
   const faqs = [
     {
-      question: "How to use this component?",
+      question: "Why should I choose Revolve Green's products over regular plastic alternatives?",
       answer:
-        "To use this component, you need to import it in your project and use it in your JSX code. Here's an example of how to use it:",
+        "Our bio-plastic products are 100% biodegradable and compostable, meaning they break down naturally without harming the environment. Unlike regular plastics that take hundreds of years to decompose, our carry bags, garbage bags, and straws are eco-friendly alternatives that help reduce plastic pollution. We're certified by CIPET and CPCB, ensuring the highest quality and environmental standards.",
     },
     {
-      question: "Are there any other components available?",
+      question: "How are your handmade bags and upcycled products made?",
       answer:
-        "Yes, there are many other components available in this library. You can find them in the 'Components' section of the website.",
+        "Our handmade products are lovingly crafted by 25+ rural women artisans who transform textile waste, plastic waste (MLP), and electronic waste into beautiful, functional items. We collect dry waste from schools, institutions, and corporate offices, then our skilled artisans upcycle these materials into coasters, bags, pouches, home decor, pen stands, diaries, and more. Each product is unique and contributes to waste reduction while empowering rural communities.",
     },
     {
-      question: "Are components responsive?",
+      question: "What is Sajja Decor and how can it help make my event sustainable?",
       answer:
-        "Yes, all components are responsive and can be used on different screen sizes.",
+        "Sajja Decor is our zero-waste event decoration service that creates stunning installations and decor elements entirely from upcycled materials. We offer rental-based decorations for weddings, corporate events, and institutional functions, ensuring your event is both beautiful and environmentally responsible. Our services include custom installations, office setups, and event decorations - all designed to minimize waste while maximizing impact.",
     },
     {
-      question: "Can I customize the components?",
+      question: "What makes Revolve Green different from other eco-friendly companies?",
       answer:
-        "Yes, you can customize the components by passing props to them. You can find more information about customizing components in the 'Customization' section of the website.",
+        "We operate across three unique verticals - Bio Plastics, Handmade Upcycled Products, and Sajja Decor Services - making us a comprehensive sustainability solution. We've already saved and upcycled 114 KGs of textile waste, 10 KGs of plastic waste, and 30 KGs of electronic waste. We don't just sell eco-friendly products; we create employment for rural women, conduct sustainability workshops, and actively transform waste into wonder. Our holistic approach tackles multiple environmental challenges while creating positive social impact.",
     },
   ];
 
@@ -37,13 +37,12 @@ export default function FAQs() {
       `}</style>
 
       <div className="max-w-2xl mx-auto flex flex-col items-center justify-center px-6 md:px-0 py-12 mb-16">
-        <p className="text-indigo-600 text-sm font-medium mb-1">FAQ's</p>
+        <p className="text-emerald-600 text-sm font-medium mb-1">FAQ's</p>
         <h1 className="text-3xl font-semibold text-center mb-2">
           Looking for answers?
         </h1>
         <p className="text-sm text-slate-500 text-center mb-10 leading-relaxed">
-          Ship Beautiful Frontends Without the Overhead — Customizable, Scalable
-          and Developer-Friendly UI Components.
+          Get answers to common questions about our bio-plastics, handmade products, and sustainable solutions.
         </p>
 
         {faqs.map((faq, index) => (

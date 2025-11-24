@@ -206,17 +206,16 @@ export default function Hero() {
         {/* Cards Section [Sticky] */}
         <section className="sticky-section relative flex justify-center items-center min-h-screen px-4 md:px-8">
 
-          {/* Background Video - Sticky */}
+          {/* Background Image - Sticky */}
           <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/herovideo.mp4" type="video/mp4" />
-            </video>
+            <Image
+              src="/bg-new.jpg"
+              alt="Green Leaf Background"
+              fill
+              className="object-cover"
+              priority
+              quality={100}
+            />
 
             {/* Dark Overlay */}
             <div className="absolute inset-0 bg-black/60"></div>
@@ -257,7 +256,7 @@ export default function Hero() {
               alt="Revolve Green Logo"
               width={500}
               height={500}
-              className="hidden md:block max-w-xs sm:max-w-sm lg:max-w-md w-full h-auto object-contain drop-shadow-2xl transition-all duration-300 animate-spin-slow"
+              className="hidden md:block max-w-xs sm:max-w-sm lg:max-w-md w-full h-auto object-contain drop-shadow-2xl brightness-0 invert"
               priority
             />
           </div>

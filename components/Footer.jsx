@@ -14,7 +14,15 @@ const Footer = () => {
       <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0 max-w-7xl mx-auto">
         {/* Left Side - Copyright & Developer Info */}
         <p className="text-green-900 font-bold text-sm sm:text-base text-center sm:text-left">
-          © 2025 NJTechStudio. All rights reserved. | Developed by Jay Patel
+          © 2025 Revolve Green. All rights reserved. | Developed by{' '}
+          <a
+            href="https://www.sayajiinfotech.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-green-600 transition-colors underline decoration-green-700 hover:decoration-green-500"
+          >
+            Sayaji Infotech
+          </a>
         </p>
 
         {/* Right Side - Social Media Links */}
