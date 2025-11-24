@@ -50,11 +50,11 @@ export default function SajjaDecorCard({ product, index }) {
           </div>
 
           {/* Rate - Simple Bold */}
-          <div className="mt-2">
+          {/* <div className="mt-2">
             <p className="text-xl md:text-2xl font-black text-gray-900">
               {product.rate}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

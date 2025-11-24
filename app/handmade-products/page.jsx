@@ -89,9 +89,9 @@ function ProductCarousel({ products, categoryLabel, Icon }) {
                 </div>
               )}
               {product.description && <p className="text-sm text-gray-600 mb-3">{product.description}</p>}
-              <div className="mt-auto pt-3">
+              {/* <div className="mt-auto pt-3">
                 <p className="text-2xl font-bold text-gray-900">{product.price}</p>
-              </div>
+              </div> */}
             </div>
           </div>
         ))}

@@ -56,7 +56,9 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="Revolve Green Logo"
-              className="w-10 h-10 md:w-12 md:h-12 object-contain"
+              className={`w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-300 ${
+                scrolled ? '' : 'brightness-0 invert'
+              }`}
             />
             <h1
               className={`text-2xl md:text-3xl font-bold transition-colors duration-300 ${
