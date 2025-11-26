@@ -167,7 +167,7 @@ export default function SustainabilityBento() {
             <img
               src="/logo.png"
               alt="Revolve Green"
-              className="w-full h-full object-contain animate-spin-slow"
+              className="w-full h-full object-contain"
             />
           </div>
 
@@ -295,47 +295,29 @@ export default function SustainabilityBento() {
             </div>
           </div>
 
-          {/* Card 10 - Team Member 1 - Aayushee Shah */}
-          <div className="card-animate bg-gradient-to-br from-white to-emerald-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <div className="flex flex-col items-center text-center">
-              <div className="w-full h-48 md:h-56 overflow-hidden">
-                <img
-                  src="/Aayushee Shah.png"
-                  alt="Aayushee Shah - Co-Founder"
-                  className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-300"
-                />
-              </div>
-              <div className="p-5">
-                <h4 className="text-lg font-bold text-emerald-800 mb-2">Aayushee Shah</h4>
-                <div className="space-y-1">
-                  <p className="text-xs text-gray-600 font-medium">Co-Founder & Product Designer</p>
-                  <div className="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">
-                    Revolve Green
-                  </div>
-                </div>
-              </div>
+          {/* Card 10 - Team Member - Side Image Layout, matching Card 9 width */}
+          <div className="card-animate bg-gradient-to-br from-white to-emerald-50 rounded-3xl p-6 md:p-8 md:col-span-2 flex flex-col md:flex-row items-center gap-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group">
+            {/* Background Glow Effect */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-emerald-500 opacity-5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+            
+            {/* Image Section */}
+            <div className="w-full md:w-1/3 h-48 md:h-56 overflow-hidden rounded-2xl relative z-10">
+              <img
+                src="/founder.jpeg"
+                alt="Preet Shah - Founder"
+                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-300"
+              />
             </div>
-          </div>
 
-          {/* Card 11 - Team Member 2 - Dhvani Damani */}
-          <div className="card-animate bg-gradient-to-br from-white to-lime-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <div className="flex flex-col items-center text-center">
-              <div className="w-full h-48 md:h-56 overflow-hidden">
-                <img
-                  src="/Dhvani Damani.png"
-                  alt="Dhvani Damani - Founder"
-                  className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-300"
-                />
+            {/* Text Section */}
+            <div className="w-full md:w-2/3 text-center md:text-left relative z-10">
+              <h4 className="text-2xl font-bold text-emerald-800 mb-2">Preet Shah</h4>
+              <div className="inline-block bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold mb-3">
+                Founder of Revolve Green
               </div>
-              <div className="p-5">
-                <h4 className="text-lg font-bold text-emerald-800 mb-2">Dhvani Damani</h4>
-                <div className="space-y-1">
-                  <p className="text-xs text-gray-600 font-medium">Founder at Upyukt</p>
-                  <div className="inline-block bg-lime-200 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold">
-                    Partner at Sajja
-                  </div>
-                </div>
-              </div>
+              <p className="text-gray-600 text-sm mt-3 leading-relaxed">
+                Leading the charge towards a sustainable future with innovative compostable solutions that make eco-friendly choices accessible to everyone.
+              </p>
             </div>
           </div>
 
