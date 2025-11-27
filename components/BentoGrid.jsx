@@ -303,7 +303,7 @@ export default function SustainabilityBento() {
             {/* Image Section */}
             <div className="w-full md:w-1/3 h-48 md:h-56 overflow-hidden rounded-2xl relative z-10">
               <img
-                src="/founder.jpeg"
+                src="/teams/founder.jpeg"
                 alt="Preet Shah - Founder"
                 className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-300"
               />

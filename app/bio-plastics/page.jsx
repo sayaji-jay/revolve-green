@@ -33,7 +33,6 @@ export default function BioPlasticsPage() {
   return (
     <div className="min-h-screen py-24 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto" ref={containerRef}>
-
         {/* Hero Section */}
         <div className="text-center mb-12 md:mb-16 card-animate">
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -208,6 +207,29 @@ export default function BioPlasticsPage() {
           <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
             <div className="text-5xl font-bold text-emerald-700 mb-2">0%</div>
             <p className="text-gray-700 font-semibold">Plastic Pollution</p>
+          </div>
+        </div>
+
+
+
+                {/* Team Photo Section */}
+        <div className="card-animate mb-12 md:mb-16">
+          <div className="relative w-full h-64 md:h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+            <img
+              src="/teams/all.jpeg"
+              alt="Our Bio Plastics Team"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/70 via-emerald-900/30 to-transparent flex items-end">
+              <div className="p-6 md:p-8 lg:p-12 w-full">
+                {/* <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                  Meet Our Team
+                </h2> */}
+                <p className="text-lg md:text-xl text-lime-200 max-w-2xl">
+                  Dedicated professionals working together to create sustainable bio-plastic solutions
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -17,7 +17,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
-  const menuItems = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor', 'Contact'];
+  const menuItems = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor', 'Teams', 'Contact'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,6 +79,7 @@ export default function Header() {
                   if (item === 'Bio Plastics') return '/bio-plastics';
                   if (item === 'Handmade Products') return '/handmade-products';
                   if (item === 'Sajja Decor') return '/sajja-decor';
+                  if (item === 'Teams') return '/teams';
                   if (item === 'Contact') return '/contact';
                   return `#${item.toLowerCase()}`;
                 };
@@ -149,12 +150,13 @@ export default function Header() {
                       if (item === 'Bio Plastics') return '/bio-plastics';
                       if (item === 'Handmade Products') return '/handmade-products';
                       if (item === 'Sajja Decor') return '/sajja-decor';
+                      if (item === 'Teams') return '/teams';
                       if (item === 'Contact') return '/contact';
                       return `#${item.toLowerCase()}`;
                     };
 
                     const isActive = pathname === getHref();
-                    const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor', 'Contact'].includes(item);
+                    const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor', 'Teams', 'Contact'].includes(item);
 
                     return (
                       <li key={item}>
