@@ -31,36 +31,6 @@ export default function TeamsPage() {
 
   const teamMembers = [
   {
-    name: 'Shalin Shah',
-    role: 'HR and Admin Manager',
-    image: '/teams/shalin.jpeg',
-    description: 'Managing HR operations and administrative workflows efficiently'
-  },
-  {
-    name: 'Keya Panchal',
-    role: 'Back Office and Accounts',
-    image: '/teams/keya.jpeg',
-    description: 'Handling accounts and ensuring smooth back-office operations'
-  },
-  {
-    name: 'Sangeeta Vaghela',
-    role: 'Handwork and Sewing Specialist',
-    image: '/teams/Sangeeta.jpeg',
-    description: 'Expert in handcrafted and sewing-based product finishing'
-  },
-  {
-    name: 'Mahesh Solanki',
-    role: 'Office Boy and On-field Assistance',
-    image: '/teams/mahesh.jpeg',
-    description: 'Supporting office tasks and providing on-field assistance'
-  },
-  {
-    name: 'Ashwin Mistry',
-    role: 'Senior Peon',
-    image: '/teams/5.jpeg', // will replace when photo comes
-    description: 'Ensuring smooth office operations through support and logistics'
-  },
-  {
     name: 'Hitesh Shah',
     role: 'Investor',
     image: '/teams/hitesh.jpeg', // will replace when photo comes
@@ -79,10 +49,46 @@ export default function TeamsPage() {
     description: 'Crafting innovative strategies and creative solutions for sustainability'
   },
   {
+    name: 'Dhvani Damani',
+    role: 'Role Title',
+    image: '/teams/dhvani.jpeg',
+    description: 'Description for Dhvani Damani'
+  },
+  {
+    name: 'Shalin Shah',
+    role: 'HR and Admin Manager',
+    image: '/teams/shalin.jpeg',
+    description: 'Managing HR operations and administrative workflows efficiently'
+  },
+  {
+    name: 'Keya Panchal',
+    role: 'Back Office and Accounts',
+    image: '/teams/keya.jpeg',
+    description: 'Handling accounts and ensuring smooth back-office operations'
+  },
+  {
     name: 'Gaurang Parekh',
     role: 'Digital Marketing Expert',
     image: '/teams/9.jpeg',
     description: 'Amplifying our eco-friendly message across digital platforms'
+  },
+  {
+    name: 'Sangeeta Vaghela',
+    role: 'Handwork and Sewing Specialist',
+    image: '/teams/Sangeeta.jpeg',
+    description: 'Expert in handcrafted and sewing-based product finishing'
+  },
+  {
+    name: 'Mahesh Solanki',
+    role: 'Office Boy and On-field Assistance',
+    image: '/teams/mahesh.jpeg',
+    description: 'Supporting office tasks and providing on-field assistance'
+  },
+  {
+    name: 'Ashwin Mistry',
+    role: 'Senior Peon',
+    image: '/teams/5.jpeg', // will replace when photo comes
+    description: 'Ensuring smooth office operations through support and logistics'
   }
 ];
 
@@ -110,10 +116,13 @@ export default function TeamsPage() {
         {/* Team Members Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
           {teamMembers.map((member, index) => {
+            const isLastTwo = index >= teamMembers.length - 2;
             return (
               <div
                 key={index}
-                className="card-animate bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
+                className={`card-animate bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group ${
+                  isLastTwo ? 'lg:col-start-2' : ''
+                } ${index === teamMembers.length - 1 ? 'md:col-start-1 lg:col-start-auto' : ''}`}
               >
                 {/* Image Container */}
                 <div className="relative h-64 md:h-72 overflow-hidden bg-gradient-to-br from-emerald-100 to-emerald-200">
