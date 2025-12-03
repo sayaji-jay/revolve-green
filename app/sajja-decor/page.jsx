@@ -3,7 +3,8 @@
 import { Sparkles, Leaf, Heart, Check, ChevronRight, Video, Recycle, Package, Store } from 'lucide-react';
 import sajjaDecorData from '@/database/products/sajja-decor-products.json';
 import SajjaDecorCard from '@/components/SajjaDecorCard';
-
+import Image from 'next/image';
+import ProductGallery from '@/components/ProductGallery';
 export default function SajjaDecor() {
   return (
     <>
@@ -41,15 +42,16 @@ export default function SajjaDecor() {
         </a>
 
         {/* Main Heading */}
-        <h1 className="text-5xl leading-[68px] md:text-6xl md:leading-[84px] font-bold max-w-3xl text-center mt-6 text-gray-900 drop-shadow-lg">
-          UPCYCLED DECOR SERVICES
-          <span className="block bg-linear-to-r from-green-500 to-emerald-400 text-transparent bg-clip-text mt-4">
-            Making Decor Waste Free
-          </span>
-        </h1>
+        <Image 
+              src="/Sajja Logo.png" 
+              alt="Sajja Logo" 
+              width={300} 
+              height={300} 
+              className="mx-auto"
+            />
 
         {/* Subtitle */}
-        <p className="text-xl text-center text-gray-900 max-w-2xl mt-8 leading-relaxed drop-shadow-sm font-semibold">
+        <p className="text-xl text-center text-gray-900 max-w-2xl leading-relaxed drop-shadow-sm font-semibold">
           Providing upcycled ZERO-WASTE solutions on rental basis for corporates, cafés, exhibitors and events. Join us in revolutionising celebrations that are no more a burden on the environment.
         </p>
 
@@ -271,6 +273,11 @@ export default function SajjaDecor() {
           ))}
         </div>
       </section>
+
+      {/* Our Latest Creations Section */}
+      <div className="relative z-10">
+        <ProductGallery />
+      </div>
 
       {/* Final CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-32 relative z-10">

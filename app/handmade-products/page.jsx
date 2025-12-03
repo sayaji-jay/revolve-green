@@ -144,7 +144,7 @@ export default function HandmadeProductsPage() {
 
         {/* Subtitle */}
         <p className="text-xl text-center text-gray-900 max-w-3xl mt-8 leading-relaxed drop-shadow-sm font-semibold">
-          MLP Waste Wrapper Products • Cloth Products • Coconut Innovatives • E-Waste Items • Magazine Products
+          MLP Waste Wrapper Products • Cloth Products • Coconut Innovatives • E-Waste Items
         </p>
 
         {/* CTA Buttons */}

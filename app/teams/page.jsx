@@ -50,9 +50,9 @@ export default function TeamsPage() {
   },
   {
     name: 'Dhvani Damani',
-    role: 'Role Title',
-    image: '/teams/dhvani.jpeg',
-    description: 'Description for Dhvani Damani'
+    role: 'Partnar',
+    image: '/teams/dhvani.png',
+    description: 'Sajja upcycle decor services'
   },
   {
     name: 'Shalin Shah',
@@ -105,7 +105,7 @@ export default function TeamsPage() {
             Our Team
           </h1>
           <p className="text-xl md:text-2xl text-emerald-600 mb-6">
-            Meet the People Behind Revolve Green
+            Meet the Peoples
           </p>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Our dedicated team of professionals works tirelessly to create sustainable solutions

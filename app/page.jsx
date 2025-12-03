@@ -1,7 +1,6 @@
 import Hero from '@/components/Hero';
 import BentoGrid from '@/components/BentoGrid';
 import FAQs from '@/components/faq';
-import ProductGallery from '@/components/ProductGallery';
 import FeaturedProducts from '@/components/FeaturedProducts';
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
         <Hero />
         <BentoGrid />
         <FeaturedProducts />
-        <ProductGallery/>
         <FAQs/>
     </div>
   );

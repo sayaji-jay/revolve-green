@@ -72,7 +72,7 @@ export default function SustainabilityBento() {
                   <ul className="space-y-1.5 ml-4 mt-2">
                     <li>• Biodegradable Carry Bags</li>
                     <li>• Compostable Garbage Bags</li>
-                    <li>• Sustainable Straws</li>
+                    <li>• Compostable PLA straws</li>
                   </ul>
                 </div>
                 <div className="mt-4 text-lime-300 font-semibold flex items-center gap-2 pt-4 border-t border-lime-300/30">
@@ -91,7 +91,7 @@ export default function SustainabilityBento() {
                     <span className="text-emerald-900 text-sm font-semibold tracking-wider">VERTICAL 2</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-emerald-900 leading-tight mb-3">
-                    Handmade Upcycled Products
+                    Handmade Upcycle Decor
                   </h2>
                   <div className="text-emerald-800 text-sm leading-relaxed">
                     <p className="font-semibold mb-2">Crafted by Rural Women Artisans</p>
@@ -99,6 +99,7 @@ export default function SustainabilityBento() {
                       <li>• Coasters & Pouches</li>
                       <li>• Bags & Accessories</li>
                       <li>• Home Decor Items</li>
+                      <li>• Daily life style products</li>
                     </ul>
                   </div>
                 </div>
@@ -124,12 +125,12 @@ export default function SustainabilityBento() {
                   <ul className="space-y-1.5 ml-4 mt-2">
                     <li>• Upcycled Event Decorations</li>
                     <li>• Rental-Based Decor</li>
-                    <li>• Office & Institutional Setup</li>
                     <li>• Custom Installations</li>
+                    <li>• Upcycled lanyards</li>
                   </ul>
                 </div>
                 <div className="mt-4 text-green-300 font-semibold flex items-center gap-2 pt-4 border-t border-pink-300/30">
-                  View Sajja Services →
+                  View Services →
                 </div>
               </div>
             </Link>
