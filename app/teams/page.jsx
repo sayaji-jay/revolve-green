@@ -52,7 +52,7 @@ export default function TeamsPage() {
     name: 'Dhvani Damani',
     role: 'Partnar',
     image: '/teams/dhvani.png',
-    description: 'Sajja upcycle decor services'
+    description: 'Sustainability and Upcycling Coach'
   },
   {
     name: 'Shalin Shah',
@@ -105,7 +105,7 @@ export default function TeamsPage() {
             Our Team
           </h1>
           <p className="text-xl md:text-2xl text-emerald-600 mb-6">
-            Meet the Peoples
+            Meet the People Behind
           </p>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Our dedicated team of professionals works tirelessly to create sustainable solutions
@@ -149,6 +149,24 @@ export default function TeamsPage() {
               </div>
             );
           })}
+        </div>
+
+        {/* Team Photo Section */}
+        <div className="card-animate mb-12 md:mb-16">
+          <div className="relative w-full h-64 md:h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+            <img
+              src="/teams/all.jpeg"
+              alt="Our Team"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/70 via-emerald-900/30 to-transparent flex items-end">
+              <div className="p-6 md:p-8 lg:p-12 w-full">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+                  Our Production Teams
+                </h3>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Team Values Section */}

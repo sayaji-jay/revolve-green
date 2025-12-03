@@ -17,7 +17,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
-  const menuItems = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor', 'Teams', 'Donate', 'Contact'];
+  const menuItems = ['Home', 'Bio Plastics', 'Handmade Products', 'Upcycle Decor', 'Our Team', 'Contact Us'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,10 +78,9 @@ export default function Header() {
                   if (item === 'Home') return '/';
                   if (item === 'Bio Plastics') return '/bio-plastics';
                   if (item === 'Handmade Products') return '/handmade-products';
-                  if (item === 'Sajja Decor') return '/sajja-decor';
-                  if (item === 'Teams') return '/teams';
-                  if (item === 'Donate') return '/donate';
-                  if (item === 'Contact') return '/contact';
+                  if (item === 'Upcycle Decor') return '/upcycle-decor';
+                  if (item === 'Our Team') return '/teams';
+                  if (item === 'Contact Us') return '/contact';
                   return `#${item.toLowerCase()}`;
                 };
 
@@ -150,15 +149,14 @@ export default function Header() {
                       if (item === 'Home') return '/';
                       if (item === 'Bio Plastics') return '/bio-plastics';
                       if (item === 'Handmade Products') return '/handmade-products';
-                      if (item === 'Sajja Decor') return '/sajja-decor';
-                      if (item === 'Teams') return '/teams';
-                      if (item === 'Donate') return '/donate';
-                      if (item === 'Contact') return '/contact';
+                      if (item === 'Upcycle Decor') return '/upcycle-decor';
+                      if (item === 'Our Team') return '/teams';
+                      if (item === 'Contact Us') return '/contact';
                       return `#${item.toLowerCase()}`;
                     };
 
                     const isActive = pathname === getHref();
-                    const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Sajja Decor', 'Teams', 'Donate', 'Contact'].includes(item);
+                    const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Upcycle Decor', 'Our Team', 'Contact Us'].includes(item);
 
                     return (
                       <li key={item}>
