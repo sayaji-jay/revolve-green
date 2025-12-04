@@ -152,24 +152,32 @@ export default function SustainabilityBento() {
             </div>
           </div>
 
-          {/* Image Card 2 */}
-          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
-            <div className="relative z-10 w-full">
-              <img
-                src="/item.png"
-                alt="Upcycled products"
-                className="w-full h-full object-cover rounded-2xl shadow-lg"
-              />
+          {/* Mission Card */}
+          <div className="card-animate md:col-span-1 bg-gradient-to-br from-lime-400 to-lime-500 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group hover:shadow-xl hover:scale-105 transition-all duration-300 min-h-[280px]">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-600 opacity-10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="relative z-10">
+              <Lightbulb className="w-10 h-10 text-emerald-900 mb-3" />
+              <h3 className="text-xl font-bold text-emerald-900 mb-2">Our Mission</h3>
+              <p className="text-emerald-800 text-sm leading-relaxed">
+                To revolutionize waste management by transforming discarded materials into valuable, sustainable products while empowering rural communities.
+              </p>
             </div>
           </div>
 
-          {/* Image Card 3 */}
-          <div className="card-animate md:col-span-1 bg-white rounded-2xl overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px] flex items-center justify-center p-6">
-            <img
-              src="/logo.png"
-              alt="Revolve Green"
-              className="w-full h-full object-contain"
-            />
+          {/* Impact Card */}
+          <div className="card-animate md:col-span-1 bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group hover:shadow-xl hover:scale-105 transition-all duration-300 min-h-[280px]">
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-lime-400 opacity-10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="relative z-10">
+              <Heart className="w-10 h-10 text-lime-300 mb-3" />
+              <h3 className="text-xl font-bold text-white mb-3">Why We Exist</h3>
+              <p className="text-white/90 text-sm leading-relaxed mb-4">
+                Every product we create tells a story of transformation—from waste to wonder, from pollution to purpose.
+              </p>
+              <div className="flex items-center gap-2 text-lime-300 text-xs font-semibold">
+                <div className="w-2 h-2 bg-lime-300 rounded-full animate-pulse"></div>
+                <span>Making sustainability accessible</span>
+              </div>
+            </div>
           </div>
 
   

@@ -329,7 +329,6 @@ export default function HandmadeProductsPage() {
           {/* Contact Info */}
           <div className="space-y-3 mb-8 relative z-10">
             <p className="text-lg font-semibold">+91 73830 70297</p>
-            <p className="text-lg font-semibold">sales@revolvegreen.com / preet@revolvegreen.com</p>
             <p className="text-lg font-semibold">revolvegreen.in</p>
           </div>
 

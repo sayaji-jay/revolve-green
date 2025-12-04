@@ -4,18 +4,6 @@
   "products": [
     {
       "id": 1,
-      "name": "Streamers",
-      "image": "/products/Sajja-streamers.png",
-      "specs": [
-        { "label": "Length", "value": "10 ft" },
-        { "label": "Height", "value": "2 ft" },
-        { "label": "Colour", "value": "Multi-coloured" }
-      ],
-      "rate": "₹10/- per feet",
-      "description": "Beautiful multi-coloured streamers made from upcycled fabric scraps, perfect for adding vibrant decorations to any event."
-    },
-    {
-      "id": 2,
       "name": "Pompoms",
       "image": "/products/Sajja-pompoms.png",
       "specs": [
@@ -27,7 +15,7 @@
       "description": "Fluffy and festive pompoms crafted from recycled materials, available in vibrant colours to brighten up your celebrations."
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Latkans",
       "image": "/products/Sajja-latkans.png",
       "specs": [
@@ -39,7 +27,7 @@
       "description": "Traditional latkans reimagined with upcycled fabrics, offering a wide range of colors for authentic Indian celebrations."
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "MLP Garlands",
       "image": "/products/Sajja-mlp.png",
       "specs": [
@@ -51,7 +39,7 @@
       "description": "Innovative garlands made from Multi-Layer Plastic (MLP) waste, transforming non-recyclable materials into stunning silver decorations."
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Bottle Cap Hangings",
       "image": "/products/Sajja-bottle-cap.png",
       "specs": [
@@ -62,7 +50,7 @@
       "description": "Creative hangings crafted from discarded bottle caps, available in various lengths and vibrant color combinations."
     },
     {
-      "id": 6,
+      "id": 5,
       "name": "Bangle Hangings",
       "image": "/products/Sajja-bangle-hanging.png",
       "specs": [
