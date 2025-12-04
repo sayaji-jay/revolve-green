@@ -45,8 +45,8 @@ export default function UpcycleDecor() {
         <Image
               src="/Sajja Logo.png"
               alt="Sajja Logo"
-              width={300}
-              height={300}
+              width={600}
+              height={600}
               className="mx-auto"
             />
 
