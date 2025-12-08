@@ -141,25 +141,26 @@ export default function SustainabilityBento() {
         {/* Bento Grid - Additional Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-auto">
 
-          {/* Image Card 1 */}
-          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-all duration-300 h-[280px] rounded-2xl">
-            <div className="relative z-10 w-full h-full">
+          {/* Card 6 - Women Employed */}
+          <div className="card-animate bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-5 md:p-6 md:col-span-2 overflow-hidden relative group hover:shadow-2xl transition-shadow duration-300">
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-lime-400 opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+            {/* Women Image */}
+            <div className="absolute right-0 bottom-0 w-1/2 h-full opacity-30">
               <img
-                src="/made-1.jpeg"
-                alt="Handmade craft creation process"
-                className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-500 group-hover:scale-105"
+                src="/womens.png"
+                alt="Rural women artisans"
+                className="w-full h-full object-cover object-center rounded-3xl"
               />
             </div>
-          </div>
-
-          {/* Image Card 2 */}
-          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-all duration-300 h-[280px] rounded-2xl">
-            <div className="relative z-10 w-full h-full">
-              <img
-                src="/made-2.jpeg"
-                alt="Artisans crafting handmade products"
-                className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-500 group-hover:scale-105"
-              />
+            <div className="relative z-10">
+              <Users className="w-10 h-10 text-lime-300 mb-3" />
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                25 Women
+              </h2>
+              <p className="text-lime-300 text-lg md:text-xl font-semibold mb-2">
+                From Rural Communities
+              </p>
+              <p className="text-white/90 text-base">Have Been Employed</p>
             </div>
           </div>
 
@@ -275,26 +276,26 @@ export default function SustainabilityBento() {
           </div>
 
 
-          {/* Card 6 - Women Employed */}
-          <div className="card-animate bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-5 md:p-6 md:col-span-2 overflow-hidden relative group hover:shadow-2xl transition-shadow duration-300">
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-lime-400 opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-            {/* Women Image */}
-            <div className="absolute right-0 bottom-0 w-1/2 h-full opacity-30">
+
+                    {/* Image Card 1 */}
+          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-all duration-300 h-[280px] rounded-2xl">
+            <div className="relative z-10 w-full h-full">
               <img
-                src="/womens.png"
-                alt="Rural women artisans"
-                className="w-full h-full object-cover object-center rounded-3xl"
+                src="/made-1.jpeg"
+                alt="Handmade craft creation process"
+                className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div className="relative z-10">
-              <Users className="w-10 h-10 text-lime-300 mb-3" />
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                25 Women
-              </h2>
-              <p className="text-lime-300 text-lg md:text-xl font-semibold mb-2">
-                From Rural Communities
-              </p>
-              <p className="text-white/90 text-base">Have Been Employed</p>
+          </div>
+
+          {/* Image Card 2 */}
+          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-all duration-300 h-[280px] rounded-2xl">
+            <div className="relative z-10 w-full h-full">
+              <img
+                src="/made-2.jpeg"
+                alt="Artisans crafting handmade products"
+                className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
           </div>
 
