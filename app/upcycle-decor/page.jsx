@@ -285,7 +285,7 @@ export default function UpcycleDecor() {
       </section>
 
       {/* Products Section with Product Cards */}
-      <section id="offerings" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      {/* <section id="offerings" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900 drop-shadow-md">
           Our Offerings
         </h2>
@@ -298,7 +298,7 @@ export default function UpcycleDecor() {
             <SajjaDecorCard key={product.id} product={product} index={index} />
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Our Latest Creations Section */}
       <div className="relative z-10">

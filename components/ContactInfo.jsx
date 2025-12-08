@@ -67,8 +67,8 @@ const ContactInfo = () => {
                 </div>
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Website</h3>
-              <a href="https://revolvegreen.in" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 font-medium">
-                revolvegreen.in
+              <a href="https://revolve-green.com" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 font-medium">
+                revolve-green.com
               </a>
             </div>
           </div>

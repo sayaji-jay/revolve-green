@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
@@ -239,16 +240,16 @@ export default function Hero() {
                 Pioneering eco-friendly solutions through bio-plastics, handcrafted upcycled products, and zero-waste event services. Building a sustainable future, one innovation at a time.
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-8 text-sm w-full sm:w-auto px-4 sm:px-0">
-                <button className="bg-emerald-600 hover:bg-emerald-700 text-white active:scale-95 rounded-full px-8 h-12 font-bold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
+                <a href="#our-verticals" className="bg-emerald-600 hover:bg-emerald-700 text-white active:scale-95 rounded-full px-8 h-12 font-bold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto flex items-center justify-center">
                   Explore Our Verticals
-                </button>
-                <button className="flex items-center justify-center gap-2 border-2 border-emerald-500/50 bg-white/10 backdrop-blur-sm active:scale-95 hover:bg-white/20 transition text-white rounded-full px-7 h-12 font-semibold w-full sm:w-auto">
+                </a>
+                <Link href="/impact" className="flex items-center justify-center gap-2 border-2 border-emerald-500/50 bg-white/10 backdrop-blur-sm active:scale-95 hover:bg-white/20 transition text-white rounded-full px-7 h-12 font-semibold w-full sm:w-auto">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-video-icon lucide-video">
                     <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
                     <rect x="2" y="6" width="14" height="12" rx="2"/>
                   </svg>
                   <span>Our Impact</span>
-                </button>
+                </Link>
               </div>
             </div>
             <Image

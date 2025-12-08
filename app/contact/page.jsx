@@ -267,7 +267,7 @@ export default function ContactPage() {
                 {/* Website */}
                 <div className="flex items-center gap-3">
                   <Globe className="w-5 h-5 text-emerald-600" strokeWidth={2.5} />
-                  <p className="text-gray-900 font-bold text-base">revolvegreen.in</p>
+                  <p className="text-gray-900 font-bold text-base">revolve-green.com</p>
                 </div>
 
                 {/* Location */}

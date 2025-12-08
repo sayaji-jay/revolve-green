@@ -50,7 +50,7 @@ export default function SustainabilityBento() {
         </div>
 
         {/* Three Verticals Section */}
-        <div className="mb-12">
+        <div id="our-verticals" className="mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-8 text-center card-animate">
             Our Three Verticals
           </h2>
@@ -142,12 +142,23 @@ export default function SustainabilityBento() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-auto">
 
           {/* Image Card 1 */}
-          <div className="card-animate md:col-span-2 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-shadow duration-300 min-h-[280px]">
-            <div className="relative z-10 w-full">
+          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-all duration-300 h-[280px] rounded-2xl">
+            <div className="relative z-10 w-full h-full">
               <img
-                src="/peoples.png"
-                alt="People working together"
-                className="w-full h-full object-cover rounded-2xl shadow-lg"
+                src="/made-1.jpeg"
+                alt="Handmade craft creation process"
+                className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
+          {/* Image Card 2 */}
+          <div className="card-animate md:col-span-1 flex flex-row gap-4 overflow-hidden relative group hover:shadow-xl transition-all duration-300 h-[280px] rounded-2xl">
+            <div className="relative z-10 w-full h-full">
+              <img
+                src="/made-2.jpeg"
+                alt="Artisans crafting handmade products"
+                className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-500 group-hover:scale-105"
               />
             </div>
           </div>

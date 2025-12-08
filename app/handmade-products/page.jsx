@@ -3,6 +3,7 @@
 import { ShoppingBag, Leaf, Package, Recycle, Heart, Check, ChevronRight, Sparkles, ChevronLeft } from 'lucide-react';
 import { useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import mlpData from '@/database/products/mlp-products.json';
 import clothData from '@/database/products/cloth-products.json';
 import coconutData from '@/database/products/coconut-products.json';
@@ -112,7 +113,7 @@ export default function HandmadeProductsPage() {
         {/* Background Image for entire page */}
         <div className="fixed inset-0 -z-10">
           <Image
-            src="/peoples.png"
+            src="/.png"
             alt="Revolve Green Community"
             fill
             className="object-cover opacity-30"
@@ -152,10 +153,10 @@ export default function HandmadeProductsPage() {
           <button className="bg-green-600 hover:bg-green-700 text-white rounded-full px-8 h-12 font-semibold transition shadow-lg hover:shadow-xl">
             Shop Now
           </button>
-          <button className="flex items-center gap-2 bg-white/90 backdrop-blur-sm border-2 border-gray-300 hover:bg-white transition rounded-full px-7 h-12 text-gray-900 font-semibold shadow-lg">
+          <Link href="/contact" className="flex items-center gap-2 bg-white/90 backdrop-blur-sm border-2 border-gray-300 hover:bg-white transition rounded-full px-7 h-12 text-gray-900 font-semibold shadow-lg">
             <ShoppingBag className="w-5 h-5" />
             <span>Contact Us</span>
-          </button>
+          </Link>
         </div>
 
         {/* Features */}
@@ -329,7 +330,7 @@ export default function HandmadeProductsPage() {
           {/* Contact Info */}
           <div className="space-y-3 mb-8 relative z-10">
             <p className="text-lg font-semibold">+91 73830 70297</p>
-            <p className="text-lg font-semibold">revolvegreen.in</p>
+            <p className="text-lg font-semibold">www.revolve-green.com</p>
           </div>
 
           <button className="bg-white text-green-700 hover:bg-green-50 px-12 py-4 rounded-full text-xl font-bold transition-all shadow-xl hover:shadow-2xl hover:scale-105 relative z-10">
