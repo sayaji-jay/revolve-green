@@ -256,13 +256,13 @@ export default function ContactPage() {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start gap-3">
+                {/* <div className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-emerald-600 mt-1" strokeWidth={2.5} />
                   <div className="space-y-1">
                     <p className="text-gray-900 font-bold text-base">sales@revolvegreen.com</p>
                     <p className="text-gray-900 font-bold text-base">preet@revolvegreen.com</p>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Website */}
                 <div className="flex items-center gap-3">
