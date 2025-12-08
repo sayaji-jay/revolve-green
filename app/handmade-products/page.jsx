@@ -1,6 +1,6 @@
 'use client';
 
-import { ShoppingBag, Leaf, Package, Recycle, Heart, Check, ChevronRight, Sparkles, ChevronLeft } from 'lucide-react';
+import { ShoppingBag, Leaf, Package, Recycle, Heart, Check, ChevronRight, Sparkles, ChevronLeft, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -173,6 +173,49 @@ export default function HandmadeProductsPage() {
             <Check className="size-5 text-white" strokeWidth={3} />
             <span className="text-white font-semibold">Unique Designs</span>
           </p>
+        </div>
+
+        {/* Social Media Links */}
+        <div className="flex flex-col items-center gap-4 mt-10">
+          <p className="text-gray-800 font-semibold text-lg">Follow Us</p>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white/90 backdrop-blur-sm hover:bg-blue-600 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-blue-600"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" strokeWidth={2} />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white/90 backdrop-blur-sm hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-pink-500"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-6 h-6 text-pink-600 group-hover:text-white transition-colors duration-300" strokeWidth={2} />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white/90 backdrop-blur-sm hover:bg-blue-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-blue-700"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-6 h-6 text-blue-700 group-hover:text-white transition-colors duration-300" strokeWidth={2} />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white/90 backdrop-blur-sm hover:bg-red-600 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-red-600"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-6 h-6 text-red-600 group-hover:text-white transition-colors duration-300" strokeWidth={2} />
+            </a>
+          </div>
         </div>
       </div>
 
