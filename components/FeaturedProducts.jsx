@@ -71,13 +71,13 @@ const products = [
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
             >
-              <div className="overflow-hidden">
+              <div className="relative w-full h-72 bg-gray-50 flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-84 object-cover"
+                  className="w-full h-full object-contain p-4"
                   loading="lazy"
                 />
               </div>
