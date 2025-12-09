@@ -3,6 +3,7 @@ import "./globals.css";
 import BackgroundZoom from "@/components/BackgroundZoom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const latoFont = Lato({
   weight: ["300", "400", "700", "900"],
@@ -28,6 +29,9 @@ export default function RootLayout({ children }) {
         className={`${latoFont.variable} antialiased relative min-h-screen overflow-x-hidden flex flex-col`}
         style={{ fontFamily: 'var(--font-lato), sans-serif' }}
       >
+        {/* Google Analytics */}
+        <GoogleAnalytics />
+
         {/* Background with Zoom Effect */}
         <BackgroundZoom />
 
