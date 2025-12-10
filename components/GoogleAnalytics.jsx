@@ -51,9 +51,7 @@ export default function GoogleAnalytics() {
           `,
         }}
       />
-      <Suspense fallback={null}>
         <GoogleAnalyticsTracking />
-      </Suspense>
     </>
   );
 }
