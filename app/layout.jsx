@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         style={{ fontFamily: 'var(--font-lato), sans-serif' }}
       >
         {/* Google Analytics */}
-        <GoogleAnalytics />
+        <GoogleAnalytics gaId={process.env.GA_MEASUREMENT_ID} />
 
         {/* Background with Zoom Effect */}
         <BackgroundZoom />

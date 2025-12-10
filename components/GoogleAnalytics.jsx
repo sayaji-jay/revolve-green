@@ -4,38 +4,31 @@ import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 
-const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID;
-
-function GoogleAnalyticsTracking() {
+function GoogleAnalyticsTracking({ gaId }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID) return;
+    if (!gaId) return;
 
-    const url = pathname + searchParams.toString();
+    const url = pathname + (searchParams.toString() ? `?${searchParams.toString()}` : "");
 
-    // Track pageview on route change
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('config', GA_MEASUREMENT_ID, {
-        page_path: url,
-      });
+    if (window.gtag) {
+      window.gtag('config', gaId, { page_path: url });
     }
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams, gaId]);
 
   return null;
 }
 
-export default function GoogleAnalytics() {
-  if (!GA_MEASUREMENT_ID) {
-    return null;
-  }
+export default function GoogleAnalytics({ gaId }) {
+  if (!gaId) return null;
 
   return (
     <>
       <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
       />
       <Script
         id="google-analytics"
@@ -45,13 +38,13 @@ export default function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-            });
+            gtag('config', '${gaId}', { page_path: window.location.pathname });
           `,
         }}
       />
-        <GoogleAnalyticsTracking />
+      <Suspense fallback={null}>
+        <GoogleAnalyticsTracking gaId={gaId} />
+      </Suspense>
     </>
   );
 }
