@@ -63,7 +63,7 @@ export default function BioPlasticsPage() {
                 <Facebook className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" strokeWidth={2} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/revolve.green?igsh=N3p2ajc2ZzhwanVq"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-white/90 backdrop-blur-sm hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-pink-500"
@@ -72,7 +72,7 @@ export default function BioPlasticsPage() {
                 <Instagram className="w-6 h-6 text-pink-600 group-hover:text-white transition-colors duration-300" strokeWidth={2} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/revolve-green"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-white/90 backdrop-blur-sm hover:bg-blue-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-blue-700"
