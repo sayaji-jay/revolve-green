@@ -17,7 +17,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
-  const menuItems = ['Home', 'Bio Plastics', 'Handmade Products', 'Upcycle Decor', 'Our Team', 'Contact Us'];
+  const menuItems = ['Home', 'Bio Plastics', 'Handmade Products', 'Upcycle Decor', 'Blog', 'Our Team', 'Contact Us'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,6 +79,7 @@ export default function Header() {
                   if (item === 'Bio Plastics') return '/bio-plastics';
                   if (item === 'Handmade Products') return '/handmade-products';
                   if (item === 'Upcycle Decor') return '/upcycle-decor';
+                  if (item === 'Blog') return '/blog';
                   if (item === 'Our Team') return '/teams';
                   if (item === 'Contact Us') return '/contact';
                   return `#${item.toLowerCase()}`;
@@ -150,13 +151,14 @@ export default function Header() {
                       if (item === 'Bio Plastics') return '/bio-plastics';
                       if (item === 'Handmade Products') return '/handmade-products';
                       if (item === 'Upcycle Decor') return '/upcycle-decor';
+                      if (item === 'Blog') return '/blog';
                       if (item === 'Our Team') return '/teams';
                       if (item === 'Contact Us') return '/contact';
                       return `#${item.toLowerCase()}`;
                     };
 
                     const isActive = pathname === getHref();
-                    const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Upcycle Decor', 'Our Team', 'Contact Us'].includes(item);
+                    const isLink = ['Home', 'Bio Plastics', 'Handmade Products', 'Upcycle Decor', 'Blog', 'Our Team', 'Contact Us'].includes(item);
 
                     return (
                       <li key={item}>
