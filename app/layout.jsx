@@ -23,8 +23,35 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Revolve Green",
+    "alternateName": "Sajja Upcycled Decor Service",
+    "url": "https://www.revolve-green.com/",
+    "logo": "https://www.revolve-green.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "73830 70297",
+      "contactType": "sales",
+      "areaServed": "IN",
+      "availableLanguage": ["en", "Gujarati", "Hindi"]
+    },
+    "sameAs": [
+      "https://www.instagram.com/revolve.green?igsh=N3p2ajc2ZzhwanVq",
+      "https://www.linkedin.com/company/revolve-green/?viewAsMember=true",
+      "https://www.facebook.com/revolvegreenpvtltd/"
+    ]
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body
         className={`${latoFont.variable} antialiased relative min-h-screen overflow-x-hidden flex flex-col`}
         style={{ fontFamily: 'var(--font-lato), sans-serif' }}

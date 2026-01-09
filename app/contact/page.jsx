@@ -238,6 +238,23 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
+
+              {/* Looking for Partners */}
+              <div className="mt-6 pt-6 border-t-2 border-green-200">
+                <h4 className="text-lg font-bold text-green-800 mb-3">
+                  Looking for Partners in:
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {['Bangalore', 'Pune', 'Delhi', 'Mumbai', 'Hyderabad'].map((city) => (
+                    <span
+                      key={city}
+                      className="bg-green-600 text-white px-3 py-1.5 rounded-full text-sm font-medium shadow-sm"
+                    >
+                      {city}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Contact Information Box */}
