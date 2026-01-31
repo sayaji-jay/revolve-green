@@ -1,13 +1,55 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { client } from '@/lib/sanity.client';
 import { urlFor } from '@/lib/sanity.image';
 import { PortableText } from '@portabletext/react';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
+import ShareButton from '@/components/ShareButton';
+
+// Generate metadata for SEO
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+
+  try {
+    const query = `*[_type == "blog" && slug.current == $slug][0] {
+      title,
+      excerpt,
+      categories,
+      mainImage
+    }`;
+    const post = await client.fetch(query, { slug });
+
+    if (!post) {
+      return {
+        title: 'Post Not Found | Revolve Green',
+        description: 'The blog post you are looking for does not exist.',
+      };
+    }
+
+    return {
+      title: `${post.title} | Revolve Green Blog`,
+      description: post.excerpt || `Read ${post.title} on Revolve Green Blog - Your source for sustainability and eco-friendly insights.`,
+      keywords: post.categories ? post.categories.join(', ') : 'sustainability, eco-friendly, green living',
+      openGraph: {
+        title: post.title,
+        description: post.excerpt,
+        type: 'article',
+        images: post.mainImage ? [urlFor(post.mainImage).width(1200).height(630).url()] : [],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description: post.excerpt,
+        images: post.mainImage ? [urlFor(post.mainImage).width(1200).height(630).url()] : [],
+      },
+    };
+  } catch (error) {
+    console.error('Error generating metadata:', error);
+    return {
+      title: 'Blog Post | Revolve Green',
+    };
+  }
+}
 
 const portableTextComponents = {
   types: {
@@ -65,45 +107,25 @@ const portableTextComponents = {
   },
 };
 
-export default function BlogPost() {
-  const params = useParams();
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default async function BlogPost({ params }) {
+  const { slug } = await params;
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const query = `*[_type == "blog" && slug.current == $slug][0] {
-          _id,
-          title,
-          slug,
-          author,
-          publishedAt,
-          excerpt,
-          mainImage,
-          body,
-          categories
-        }`;
-        const data = await client.fetch(query, { slug: params.slug });
-        setPost(data);
-      } catch (error) {
-        console.error('Error fetching post:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (params.slug) {
-      fetchPost();
-    }
-  }, [params.slug]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex justify-center items-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-green-600"></div>
-      </div>
-    );
+  let post = null;
+  try {
+    const query = `*[_type == "blog" && slug.current == $slug][0] {
+      _id,
+      title,
+      slug,
+      author,
+      publishedAt,
+      excerpt,
+      mainImage,
+      body,
+      categories
+    }`;
+    post = await client.fetch(query, { slug });
+  } catch (error) {
+    console.error('Error fetching post:', error);
   }
 
   if (!post) {
@@ -182,23 +204,7 @@ export default function BlogPost() {
               day: 'numeric'
             })}</span>
           </div>
-          <button
-            onClick={() => {
-              if (navigator.share) {
-                navigator.share({
-                  title: post.title,
-                  url: window.location.href,
-                });
-              } else {
-                navigator.clipboard.writeText(window.location.href);
-                alert('Link copied to clipboard!');
-              }
-            }}
-            className="flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold transition-colors"
-          >
-            <Share2 className="w-5 h-5" />
-            Share
-          </button>
+          <ShareButton title={post.title} />
         </div>
 
         {/* Excerpt */}
