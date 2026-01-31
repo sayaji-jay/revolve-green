@@ -91,7 +91,7 @@ export default function SustainabilityBento() {
                     <span className="text-emerald-900 text-sm font-semibold tracking-wider">VERTICAL 2</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-emerald-900 leading-tight mb-3">
-                    Handmade Upcycle Decor
+                    Handmade Upcycle Product
                   </h2>
                   <div className="text-emerald-800 text-sm leading-relaxed">
                     <p className="font-semibold mb-2">Crafted by Rural Women Artisans</p>
