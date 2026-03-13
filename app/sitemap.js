@@ -1,4 +1,15 @@
-import { client } from '@/lib/sanity.client';
+import { createClient } from 'next-sanity';
+
+// Use a CDN-bypassing client for the sitemap to always get fresh data
+const sitemapClient = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  apiVersion: '2024-01-01',
+  useCdn: false,
+});
+
+// Revalidate the sitemap every 60 seconds so new blog posts appear quickly
+export const revalidate = 60;
 
 export default async function sitemap() {
   const baseUrl = 'https://www.revolve-green.com';
@@ -63,7 +74,7 @@ export default async function sitemap() {
       publishedAt,
       _updatedAt
     }`;
-    blogPosts = await client.fetch(query);
+    blogPosts = await sitemapClient.fetch(query);
   } catch (error) {
     console.error('Error fetching blog posts for sitemap:', error);
   }
